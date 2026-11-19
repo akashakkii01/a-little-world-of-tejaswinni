@@ -1,170 +1,208 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#142d2c">
-<meta name="description" content="A little world of secret paths, tiny quests and unexpected wonders, made for Tejaswinni.">
-<title>A Little World of Tejaswinni — The Wonderlands</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="world.css?v=3">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#172d2b">
+  <meta name="description" content="A small, living world of quiet paths, little discoveries and unexpected wonders, made for Tejaswinni.">
+  <title>A Little World of Tejaswinni — The Living Atlas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="world.css?v=4">
+  <script src="world.js?v=4" defer></script>
 </head>
-<body>
-<div class="noise"></div><div class="progress-track"><i id="progress"></i></div>
-<header class="topbar"><a class="wordmark" href="#home"><span class="mark">✳</span><span>THE WONDERLANDS<small>A LITTLE WORLD FOR TEJASWINNI</small></span></a><div class="top-status"><span class="status-dot"></span><span id="statusText">YOUR ADVENTURE AWAITS</span></div><div class="header-actions"><button class="explore-open" id="exploreOpen">EXPLORE <span>⌕</span></button><button class="journal-open" id="journalOpen">FIELD JOURNAL <span>↗</span></button></div></header>
-<main id="home">
-<section class="hero" id="welcome">
- <div class="hero-copy">
-  <p class="eyebrow"><span>AN UNUSUAL LITTLE INVITATION</span><b>✦</b><span>VOL. 01</span></p>
-  <h1>Somewhere,<br>there is a world<br>that <em>waited for you.</em></h1>
-  <p class="hero-intro">A world with winding paths, curious little creatures, secret corners and tiny things worth finding. No rush. No rules. Just follow what makes you curious.</p>
-  <button class="primary-cta" id="begin"><span>LET'S WANDER</span><b>↗</b></button>
-  <p class="hero-footnote">BEST EXPLORED WITH A LITTLE CURIOSITY <span>♡</span></p>
- </div>
- <div class="hero-scene" aria-label="Illustrated mountain valley with a cottage and winding path">
-  <div class="scene-sun"></div><div class="scene-cloud cloud-one"></div><div class="scene-cloud cloud-two"></div>
-  <div class="mountain back"></div><div class="mountain mid"></div><div class="mountain front"></div>
-  <div class="lake"></div><div class="island"></div><div class="cottage"><i></i><b></b><span></span></div>
-  <div class="pine pine-one"></div><div class="pine pine-two"></div><div class="pine pine-three"></div>
-  <div class="path"></div><div class="hero-bunny"><i></i><b></b><span></span></div>
-  <span class="scene-label label-a">THE VALLEY OF LITTLE WONDERS</span><span class="scene-label label-b">31° N · SOMEWHERE IN A DAYDREAM</span>
-  <span class="floating-spark spark-one">✦</span><span class="floating-spark spark-two">✧</span><span class="floating-spark spark-three">✦</span>
- </div>
- <div class="hero-bottom"><span>SCROLL IS OPTIONAL. EXPLORING IS NOT.</span><span>01 / A WORLD IN PROGRESS</span></div>
-</section>
+<body data-weather="clear">
+  <div class="grain" aria-hidden="true"></div>
+  <canvas class="ambient-canvas" id="ambientCanvas" aria-hidden="true"></canvas>
+  <div class="reading-line" aria-hidden="true"><i id="readingProgress"></i></div>
 
+  <header class="topbar">
+    <a class="brand" href="#welcome" aria-label="The Living Atlas home">
+      <span class="brand-mark">✳</span>
+      <span class="brand-name">THE LIVING ATLAS<small>A LITTLE WORLD FOR TEJASWINNI</small></span>
+    </a>
+    <div class="topbar-right">
+      <span class="weather-label" id="weatherLabel"><i></i> A CLEAR LITTLE DAY</span>
+      <button class="quiet-button" id="exploreOpen" type="button">EXPLORE <span>⌕</span></button>
+      <button class="journal-button" id="journalOpen" type="button"><span class="journal-icon">◌</span> FIELD NOTES <b id="journalCount">0/4</b></button>
+    </div>
+  </header>
 
+  <main id="worldApp">
+    <section class="screen welcome-screen active" id="welcome" aria-labelledby="welcomeTitle">
+      <div class="welcome-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> AN INVITATION TO WANDER <span class="eyebrow-rule"></span> VOL. 01</p>
+        <h1 id="welcomeTitle">Somewhere,<br>the world feels<br>a little <em>softer.</em></h1>
+        <p class="welcome-description">A tiny place with winding paths, a garden that listens, a café for the in-between days, and a sky full of little things to discover.</p>
+        <div class="welcome-actions">
+          <button class="primary-button" id="enterWorld" type="button">STEP INTO THE WORLD <span>↗</span></button>
+          <button class="envelope-link" id="openEnvelope" type="button"><span>✉</span> There is a little note for you</button>
+        </div>
+        <p class="welcome-foot">NO TIMER. NO CHECKLIST. JUST FOLLOW YOUR CURIOSITY.</p>
+      </div>
 
-<section class="invitation-room" id="invitation">
- <div class="invitation-copy"><p class="eyebrow dark">A LETTER BEFORE YOU WANDER</p><h2>Every adventure<br>deserves a <em>hello.</em></h2><p>There is a little envelope here with your name on it. Open it whenever you feel like it. No rush.</p><span class="invitation-caption">A SMALL INVITATION · SEALED WITH CARE</span></div>
- <div class="envelope-stage"><button class="wonder-envelope" id="wonderEnvelope" aria-expanded="false" aria-controls="invitationLetter" aria-label="Open your little invitation"><span class="envelope-back"></span><span class="envelope-letter"><small>FOR TEJASWINNI</small><b>A little<br>hello.</b><i>✳</i></span><span class="envelope-flap"></span><span class="envelope-seal">✿</span></button><div class="envelope-hint" id="envelopeHint">TAP TO OPEN THE LETTER</div><article class="invitation-letter" id="invitationLetter" hidden><span>A NOTE FOR YOU</span><h3>Welcome to your little world.</h3><p>I made this place so you could wander without a plan, find tiny surprises, and take a pause whenever you need one. I hope it gives you a few reasons to smile.</p><small>— with a little care ♡</small></article></div>
-</section>
+      <div class="welcome-art" role="img" aria-label="A hand-drawn mountain valley with a lake, a little cottage, flowers and a winding path">
+        <svg class="valley-art" viewBox="0 0 760 650" role="presentation">
+          <defs>
+            <linearGradient id="skyWash" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6dfc8"/><stop offset=".62" stop-color="#d7dfcf"/><stop offset="1" stop-color="#b9cdb9"/></linearGradient>
+            <linearGradient id="lakeWash" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#91b9ad"/><stop offset="1" stop-color="#557f79"/></linearGradient>
+            <linearGradient id="hillWash" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#829b7c"/><stop offset="1" stop-color="#425e50"/></linearGradient>
+            <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="12"/></filter>
+          </defs>
+          <rect x="16" y="16" width="728" height="618" rx="230" fill="url(#skyWash)"/>
+          <circle cx="545" cy="145" r="57" fill="#f4c88d" opacity=".78"/>
+          <ellipse cx="545" cy="145" rx="88" ry="88" fill="#f4c88d" opacity=".13" filter="url(#softShadow)"/>
+          <path d="M16 340 150 184 234 278 355 118 494 286 590 194 744 342V634H16Z" fill="#8b9f94"/>
+          <path d="m150 184 38 43-39-13-27 30 28-60Zm205-66 56 68-57-23-38 34 39-79Zm235 76 40 50-44-15-27 20 31-55Z" fill="#f4eee2" opacity=".8"/>
+          <path d="M16 390 146 288 253 370 376 253 506 384 628 284 744 390V634H16Z" fill="#6e8b79"/>
+          <path d="M16 450q145-80 260-15t230 0q115-72 238-5v204H16Z" fill="url(#hillWash)"/>
+          <path d="M16 462q165-56 270 4t212-1q130-61 246-10v100H16Z" fill="#9ab18e"/>
+          <path d="M80 465q122-25 213 37t188 13q102-43 180-5l-25 98H92Z" fill="url(#lakeWash)" opacity=".95"/>
+          <path d="M86 496q114-23 210 33t189 10q79-30 149-8" fill="none" stroke="#d6e4d7" stroke-width="3" opacity=".65"/>
+          <path d="M20 540q125-60 243-18t215 14q130-41 245 1" fill="none" stroke="#d6e4d7" stroke-width="2" opacity=".35"/>
+          <path d="M420 451q-18-36-2-65l44-28 44 31 2 62Z" fill="#f0d7b8"/>
+          <path d="m409 389 52-46 53 46Z" fill="#8c6554"/>
+          <path d="m428 389 33-29 33 29Z" fill="#d6aa83"/>
+          <rect x="441" y="406" width="18" height="44" rx="2" fill="#8c6554"/>
+          <rect x="469" y="405" width="17" height="19" rx="2" fill="#a6c0ae"/>
+          <path d="M460 451q-35 38-56 75t-47 69" fill="none" stroke="#e8d8bd" stroke-width="15" stroke-linecap="round"/>
+          <path d="M460 451q-35 38-56 75t-47 69" fill="none" stroke="#b89a7e" stroke-width="2" stroke-dasharray="3 12" stroke-linecap="round"/>
+          <g fill="#344f43"><path d="m96 452 23-92 23 92Z"/><path d="m126 452 25-112 25 112Z"/><path d="m650 410 27-112 27 112Z"/><path d="m616 423 22-88 22 88Z"/></g>
+          <g fill="#6f9272"><path d="m107 417 12-55 14 55Z"/><path d="m137 405 14-65 15 65Z"/><path d="m661 370 16-72 16 72Z"/></g>
+          <g transform="translate(270 505)">
+            <path d="M0 45q-8-22 5-36 12-12 25-3 13-9 25 3 13 14 4 36Z" fill="#f0e7d5"/>
+            <ellipse cx="27" cy="44" rx="31" ry="19" fill="#f0e7d5"/>
+            <path d="M9 13q-14-35-4-37 14-2 18 32M34 8q0-35 12-33 13 4-2 37" fill="#f0e7d5" stroke="#d6c8b4" stroke-width="3"/>
+            <circle cx="18" cy="38" r="2.5" fill="#4d5a4c"/><circle cx="36" cy="38" r="2.5" fill="#4d5a4c"/>
+            <path d="M22 47q5 4 10 0" fill="none" stroke="#c98e86" stroke-width="2" stroke-linecap="round"/>
+          </g>
+          <g fill="#e8a69b"><circle cx="174" cy="520" r="7"/><circle cx="194" cy="540" r="5"/><circle cx="581" cy="497" r="7"/><circle cx="600" cy="515" r="5"/></g>
+          <g fill="#f5e8c9"><circle cx="184" cy="516" r="2"/><circle cx="590" cy="493" r="2"/></g>
+        </svg>
+        <span class="art-caption caption-top">THE VALLEY OF LITTLE WONDERS</span>
+        <span class="art-caption caption-bottom">A PLACE THAT DOESN'T ASK YOU TO HURRY</span>
+        <span class="art-coordinate">31° N · SOMEWHERE IN A DAYDREAM</span>
+        <button class="art-spark spark-a" type="button" aria-label="A little hidden detail">✧</button>
+        <button class="art-spark spark-b" type="button" aria-label="A little hidden detail">✦</button>
+      </div>
+      <div class="welcome-bottom"><span>01 — THE FIRST PAGE</span><span>MADE WITH A LITTLE EXTRA THOUGHT <b>✳</b></span></div>
+    </section>
 
-<section class="storybook-section" id="storybook">
- <div class="storybook-heading"><div><p class="eyebrow dark">A STORY WITH ROOM TO WANDER</p><h2>Five little<br><em>chapters.</em></h2><span class="storybook-progress" id="chapterProgress">0 / 5 PAGES READ</span></div><p>Like a storybook, except you get to choose which page to open first. Each page leaves a little mark in your field journal.</p></div>
- <div class="storybook-layout">
-  <div class="chapter-shelf" role="group" aria-label="Choose a story chapter">
-   <button class="chapter-tab active" data-story-chapter="0" aria-pressed="true"><span>01</span><b>The First Page</b><small>Every world starts somewhere</small><i>↗</i></button>
-   <button class="chapter-tab" data-story-chapter="1" aria-pressed="false"><span>02</span><b>The In-Between</b><small>Little moments count too</small><i>↗</i></button>
-   <button class="chapter-tab" data-story-chapter="2" aria-pressed="false"><span>03</span><b>Somewhere New</b><small>There is always more to see</small><i>↗</i></button>
-   <button class="chapter-tab" data-story-chapter="3" aria-pressed="false"><span>04</span><b>A Softer Place</b><small>A pause, whenever you need one</small><i>↗</i></button>
-   <button class="chapter-tab" data-story-chapter="4" aria-pressed="false"><span>05</span><b>The Page After</b><small>Some stories keep going</small><i>↗</i></button>
-  </div>
-  <article class="chapter-page" id="chapterPage" aria-live="polite">
-   <div class="chapter-page-top"><span>THE LITTLE STORYBOOK</span><span id="chapterPageNumber">01 / 05</span></div>
-   <div class="chapter-illustration" id="chapterIllustration">✳</div>
-   <p class="chapter-kicker" id="chapterKicker">CHAPTER ONE</p><h3 id="chapterTitle">The First Page</h3>
-   <p id="chapterBody">Every lovely little world begins with a hello. This one begins with an invitation to slow down, look around, and follow whatever makes you curious.</p>
-   <button class="chapter-next" id="chapterNext">TURN THE PAGE <span>→</span></button>
-   <div class="chapter-page-foot"><span id="chapterReadStatus">A PAGE WAITING TO BE READ</span><span>✧</span></div>
-  </article>
- </div>
-</section>
+    <section class="screen map-screen" id="mapScreen" hidden aria-labelledby="mapTitle">
+      <div class="map-heading">
+        <div><p class="eyebrow">THE ATLAS IS OPEN</p><h2 id="mapTitle">Where shall we<br><em>wander first?</em></h2></div>
+        <p>Four little places. Each one has its own way of saying hello. There is no right order, and no need to find everything at once.</p>
+      </div>
+      <div class="atlas-board" id="atlasBoard">
+        <svg class="atlas-landscape" viewBox="0 0 1100 650" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs><linearGradient id="atlasSky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#e7d6c0"/><stop offset="1" stop-color="#c6d5c2"/></linearGradient><linearGradient id="atlasWater" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9cbeb2"/><stop offset="1" stop-color="#60877e"/></linearGradient></defs>
+          <rect width="1100" height="650" fill="url(#atlasSky)"/>
+          <circle cx="820" cy="115" r="58" fill="#f4c98e" opacity=".7"/>
+          <path d="M0 290 140 130 260 245 410 80 560 260 700 130 850 270 990 140 1100 270V650H0Z" fill="#9aaca0"/>
+          <path d="m410 80 70 90-67-24-43 39 40-105Zm440 190 53-70 57 70-56-23-54 23Z" fill="#f4eee2" opacity=".85"/>
+          <path d="M0 370 160 250 300 355 460 240 620 360 780 245 930 360 1100 265V650H0Z" fill="#78927e"/>
+          <path d="M0 445q180-95 340-16t315 8q190-84 445 5v208H0Z" fill="#617f68"/>
+          <path d="M0 520q180-72 330-6t330 2q190-63 440-1v135H0Z" fill="#9bb18e"/>
+          <path d="M100 570q180-80 330-12t300 0q160-45 260 10v82H100Z" fill="url(#atlasWater)" opacity=".9"/>
+          <path d="M130 590q145-48 260 0t280 0q160-40 250 0" fill="none" stroke="#d8e6d7" stroke-width="3" opacity=".65"/>
+          <path d="M150 500q80-80 160-25t150 15q110-70 190-20t180 8" fill="none" stroke="#f2dfc2" stroke-width="8" stroke-linecap="round" stroke-dasharray="2 15"/>
+          <g fill="#355648"><path d="m70 470 30-120 30 120Z"/><path d="m120 482 24-95 24 95Z"/><path d="m950 470 30-120 30 120Z"/><path d="m1000 480 24-95 24 95Z"/></g>
+        </svg>
+        <svg class="atlas-route" viewBox="0 0 1100 650" preserveAspectRatio="none" aria-hidden="true"><path d="M160 475 C240 370 300 300 430 315 S590 420 680 330 S820 210 940 300" fill="none" stroke="#f6e9d3" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 15"/><path d="M160 475 C240 370 300 300 430 315 S590 420 680 330 S820 210 940 300" fill="none" stroke="#8b9d7e" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 15"/></svg>
 
-<section class="world" id="world">
- <div class="section-intro"><div><p class="eyebrow dark">YOUR MAP HAS ARRIVED</p><h2>Pick a little<br><em>adventure.</em></h2></div><p>Four places. A handful of secrets.<br>And a small guide who knows the way.<br><span>Some discoveries are hiding in plain sight.</span></p></div>
- <div class="map-wrap">
-  <div class="map-topline"><span>✳ THE HAND-DRAWN MAP</span><span id="mapCounter">0 / 5 KEEPSAKES FOUND</span></div>
-  <div class="map-canvas">
-   <svg class="map-route" viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true"><path d="M120 450 C190 380 190 260 340 240 S470 370 560 320 S690 140 820 190 S870 370 920 420" fill="none" stroke="#a77e69" stroke-width="3" stroke-linecap="round" stroke-dasharray="3 13"/><path d="M340 240 Q420 100 560 320" fill="none" stroke="#a77e69" stroke-width="2" stroke-dasharray="2 12"/></svg>
-   <div class="map-hill hill-a"></div><div class="map-hill hill-b"></div><div class="map-river"></div>
-   <button class="map-place place-meadow" data-go="meadow"><span class="place-icon">✿</span><span>THE WILD MEADOW<small>catch a little daylight</small></span><i class="place-check">✓</i></button>
-   <button class="map-place place-cafe" data-go="cafe"><span class="place-icon">☕</span><span>CLOUD NINE CAFÉ<small>order a feeling</small></span><i class="place-check">✓</i></button>
-   <button class="map-place place-trail" data-go="trail"><span class="place-icon">⌁</span><span>THE LONG WAY ROUND<small>take the scenic route</small></span><i class="place-check">✓</i></button>
-   <button class="map-place place-stars" data-go="stars"><span class="place-icon">✧</span><span>THE NIGHT SKY<small>connect the quiet stars</small></span><i class="place-check">✓</i></button>
-   <div class="map-bunny" id="mapBunny"><span>Need a hint?</span><b>🐇</b></div>
-   <div class="map-legend"><span>✦ YOU ARE HERE, WHENEVER YOU LIKE</span><span>THE MAP HAS NO DEAD ENDS</span></div>
-  </div>
-  <div class="quest-strip"><div class="quest-icon">✧</div><div><b>THE LITTLE QUEST</b><p>Find five keepsakes along the way. A final door will open when you have them all.</p></div><div class="keepsake-row" id="keepsakes"><i>○</i><i>○</i><i>○</i><i>○</i><i>○</i></div></div>
- </div>
-</section>
+        <button class="atlas-pin pin-garden" data-place="garden" type="button"><span class="pin-symbol">✿</span><span class="pin-copy"><b>THE WILD GARDEN</b><small>where little things bloom</small></span><i class="pin-status">↗</i></button>
+        <button class="atlas-pin pin-cafe" data-place="cafe" type="button"><span class="pin-symbol">☁</span><span class="pin-copy"><b>CLOUD NINE CAFÉ</b><small>a pause for every kind of day</small></span><i class="pin-status">↗</i></button>
+        <button class="atlas-pin pin-trail" data-place="trail" type="button"><span class="pin-symbol">⌁</span><span class="pin-copy"><b>THE LONG WAY ROUND</b><small>take the scenic route</small></span><i class="pin-status">↗</i></button>
+        <button class="atlas-pin pin-sky" data-place="sky" type="button"><span class="pin-symbol">✧</span><span class="pin-copy"><b>THE QUIET OBSERVATORY</b><small>put a little wish in the sky</small></span><i class="pin-status">↗</i></button>
+        <div class="atlas-bunny" id="bunnyGuide"><span id="bunnyHint">Psst… I know a few shortcuts.</span><b>🐇</b></div>
+        <div class="atlas-label label-left">THE OLD FOOTPATH</div><div class="atlas-label label-right">THE LITTLE LAKE</div>
+        <div class="atlas-board-foot"><span>✦ FOUR PLACES TO DISCOVER</span><span id="atlasProgress">0 / 4 FOUND</span></div>
+      </div>
+      <div class="map-lower"><span>YOUR JOURNEY IS SAVED ON THIS DEVICE.</span><button class="text-link" id="mapNoteOpen" type="button">READ THE NOTE AGAIN ↗</button></div>
+    </section>
 
-<section class="realm meadow-realm" id="meadow">
- <div class="realm-art meadow-art">
-  <div class="meadow-sky"></div><div class="meadow-sun"></div><div class="meadow-mountains"></div><div class="meadow-hill"></div>
-  <div class="meadow-flower f1">✿</div><div class="meadow-flower f2">✿</div><div class="meadow-flower f3">✿</div><div class="meadow-flower f4">✿</div>
-  <button class="firefly ff1" aria-label="Catch a firefly">✦</button><button class="firefly ff2" aria-label="Catch a firefly">✧</button><button class="firefly ff3" aria-label="Catch a firefly">✦</button><button class="firefly ff4" aria-label="Catch a firefly">✧</button><button class="firefly ff5" aria-label="Catch a firefly">✦</button><button class="firefly ff6" aria-label="Catch a firefly">✧</button>
-  <div class="meadow-sign">THE WILD MEADOW <small>THE AIR SMELLS LIKE SOMETHING GOOD IS ABOUT TO HAPPEN</small></div>
-  <div class="meadow-count" id="fireflyCount">FIREFLIES FOUND · 0 / 5</div>
- </div>
- <div class="realm-copy"><p class="eyebrow dark">01 — A SMALL GAME OF PATIENCE</p><h2>Chase the<br><em>little lights.</em></h2><p>They only appear when you slow down. Tap five fireflies before they drift away. One of them is carrying a keepsake.</p><div class="realm-hint">✦ LITTLE TIP: THEY'RE THE TWINKLY ONES.</div><button class="text-link" data-back>BACK TO THE MAP ↗</button></div>
-</section>
+    <section class="screen place-screen" id="placeScreen" hidden aria-labelledby="placeTitle">
+      <div class="place-topline"><button class="back-button" id="backToMap" type="button">← BACK TO THE ATLAS</button><span id="placeNumber">PLACE 01 / 04</span></div>
+      <div class="place-layout">
+        <div class="place-art" id="placeArt" aria-hidden="true"></div>
+        <div class="place-content">
+          <p class="eyebrow" id="placeEyebrow">A LITTLE DISCOVERY</p>
+          <h2 id="placeTitle">The Wild Garden</h2>
+          <p class="place-description" id="placeDescription"></p>
+          <div class="place-interaction" id="placeInteraction"></div>
+          <div class="place-bottom"><span id="placeStatus">A SMALL DISCOVERY IS WAITING</span><button class="text-link" id="nextPlace" type="button">BACK TO THE ATLAS ↗</button></div>
+        </div>
+      </div>
+    </section>
 
-<section class="realm cafe-realm" id="cafe">
- <div class="realm-copy"><p class="eyebrow dark">02 — A VERY IMPORTANT MENU</p><h2>What kind of<br><em>day is it?</em></h2><p>Cloud Nine doesn't serve coffee. It serves little pauses. Pick what you need today and the café will make it just right.</p>
-  <div class="mood-menu">
-   <button data-mood="soft"><span>01</span><b>A SOFT LITTLE PAUSE</b><i>☁</i></button>
-   <button data-mood="brave"><span>02</span><b>A POCKETFUL OF COURAGE</b><i>✿</i></button>
-   <button data-mood="joy"><span>03</span><b>AN EXTRA SIDE OF GIGGLES</b><i>♡</i></button>
-   <button data-mood="dream"><span>04</span><b>ONE MIDNIGHT WISH</b><i>✧</i></button>
-  </div>
-  <div class="cafe-receipt" id="cafeReceipt">YOUR ORDER WILL APPEAR HERE <span>— ON THE HOUSE, ALWAYS.</span></div><button class="text-link" data-back>BACK TO THE MAP ↗</button>
- </div>
- <div class="cafe-art"><div class="cafe-window"><div class="cafe-window-sun"></div><div class="cafe-window-hills"></div><span>☁</span></div><div class="cafe-shelf"></div><div class="cafe-table"></div><div class="cafe-cup"><i>♡</i></div><div class="cafe-plant">✿</div><p>A WINDOW SEAT<br>AND ALL THE TIME IN THE WORLD.</p></div>
-</section>
+    <section class="screen finale-screen" id="finaleScreen" hidden aria-labelledby="finaleTitle">
+      <div class="finale-scene" aria-hidden="true"><span class="finale-moon"></span><span class="finale-hill hill-one"></span><span class="finale-hill hill-two"></span><span class="finale-cottage"></span><span class="finale-fireflies">✦　✧　✦</span></div>
+      <div class="finale-copy">
+        <p class="eyebrow">THE LAST PAGE · OR MAYBE NOT</p>
+        <h2 id="finaleTitle">A little world<br>for a <em>lovely soul.</em></h2>
+        <div class="finale-letter">
+          <span class="letter-kicker">A NOTE TO TAKE WITH YOU</span>
+          <p>I made this little place so you could wander, find a few unexpected things, and have somewhere gentle to pause for a moment.</p>
+          <p>I hope the days ahead bring you beautiful views, kind surprises, new places to discover, and plenty of reasons to smile. And when a day feels a little too full, I hope you remember that taking the scenic route is always allowed.</p>
+          <p class="letter-signoff">Keep a little wonder with you. <span>♡</span></p>
+        </div>
+        <div class="finale-actions"><button class="primary-button" id="makeKeepsake" type="button">MAKE A LITTLE KEEPSAKE <span>↗</span></button><button class="envelope-link" id="wanderAgain" type="button">↺ Wander again</button></div>
+        <p class="finale-foot">MADE WITH CARE · FOR TEJASWINNI</p>
+      </div>
+    </section>
+  </main>
 
-<section class="realm trail-realm" id="trail">
- <div class="trail-art"><div class="trail-sun"></div><div class="trail-peak peak-one"></div><div class="trail-peak peak-two"></div><div class="trail-peak peak-three"></div><div class="trail-pines"></div><div class="trail-lake"></div><div class="trail-path"></div><div class="trail-sign">THIS WAY<br><small>PROBABLY</small></div><span class="trail-hidden" id="hiddenShell" role="button" tabindex="0" aria-label="Find the hidden keepsake">◈</span><span class="trail-caption">THE LONG WAY ROUND · TAKE YOUR TIME</span></div>
- <div class="realm-copy"><p class="eyebrow dark">03 — THE SCENIC ROUTE</p><h2>Not every path<br>needs a <em>destination.</em></h2><p>Some paths are for the view. Some are for the unexpected things you notice along the way. Choose the trail that feels right.</p>
-  <div class="trail-choices"><button data-trail="ridge"><span>↗</span><b>THE HIGH RIDGE</b><small>For the big-picture kind of day.</small></button><button data-trail="lake"><span>⌁</span><b>THE QUIET LAKE</b><small>For when everything can wait.</small></button><button data-trail="woods"><span>✳</span><b>THE LITTLE WOODS</b><small>For a bit of delightful mystery.</small></button></div>
-  <div class="trail-note" id="trailNote">Pick a path. The view is yours either way.</div><button class="text-link" data-back>BACK TO THE MAP ↗</button>
- </div>
-</section>
+  <dialog class="note-dialog" id="noteDialog">
+    <button class="dialog-x" data-close-note type="button" aria-label="Close note">×</button>
+    <div class="note-envelope" aria-hidden="true"><span>✉</span></div>
+    <p class="eyebrow">A LITTLE NOTE BEFORE YOU GO</p>
+    <h2>Just a small<br><em>hello.</em></h2>
+    <p>I made this place so you could wander without a plan, discover a few tiny surprises, and take a pause whenever you feel like it. I hope it gives you a reason to smile.</p>
+    <span class="note-sign">— with a little care ♡</span>
+    <button class="primary-button" id="noteEnter" type="button">LET'S WANDER <span>↗</span></button>
+  </dialog>
 
-<section class="realm stars-realm" id="stars">
- <div class="realm-copy"><p class="eyebrow light">04 — WHEN THE WORLD GOES QUIET</p><h2>Make a little<br><em>constellation.</em></h2><p>Five stars have wandered away from their places. Find them and bring the constellation back together.</p><div class="star-progress" id="starProgress">0 OF 5 STARS CONNECTED</div><div class="star-message" id="starMessage">The night is listening.</div><button class="text-link light-link" data-back>BACK TO THE MAP ↗</button></div>
- <div class="stars-art"><div class="stars-moon"></div><svg viewBox="0 0 600 440" class="constellation-lines"><path id="constellationPath" d="M92 250 L190 115 L300 215 L420 90 L510 260" fill="none" stroke="#f1d7aa" stroke-width="2" stroke-dasharray="5 9" opacity=".28"/></svg><button class="constellation-star s1" aria-label="Connect star one">✦</button><button class="constellation-star s2" aria-label="Connect star two">✧</button><button class="constellation-star s3" aria-label="Connect star three">✦</button><button class="constellation-star s4" aria-label="Connect star four">✧</button><button class="constellation-star s5" aria-label="Connect star five">✦</button><span class="stars-art-note">THE CONSTELLATION OF LITTLE POSSIBILITIES</span></div>
-</section>
+  <dialog class="journal-dialog" id="journalDialog">
+    <button class="dialog-x" data-close-journal type="button" aria-label="Close field notes">×</button>
+    <p class="eyebrow">FIELD NOTES · VOL. 01</p>
+    <h2>A few things<br>you've <em>found.</em></h2>
+    <div class="journal-meter"><span id="journalMeterFill"></span></div>
+    <p class="journal-meter-label" id="journalMeterLabel">0 OF 4 PLACES DISCOVERED</p>
+    <div class="journal-list" id="journalList"><p class="journal-empty">Your first little discovery is waiting somewhere on the map.</p></div>
+    <div class="journal-footer"><span>EVERYTHING STAYS ON THIS DEVICE.</span><button id="journalClose" type="button">CLOSE ×</button></div>
+  </dialog>
 
+  <dialog class="explore-dialog" id="exploreDialog">
+    <button class="dialog-x" data-close-explore type="button" aria-label="Close explore">×</button>
+    <p class="eyebrow">THE QUICK WAY AROUND</p>
+    <h2>Where to<br><em>next?</em></h2>
+    <label for="exploreSearch">FIND A PLACE</label>
+    <input id="exploreSearch" type="search" placeholder="Try garden, café, trail, stars…">
+    <div class="explore-results" id="exploreResults">
+      <button type="button" data-jump="garden"><b>The Wild Garden</b><small>Grow a tiny flower</small><span>↗</span></button>
+      <button type="button" data-jump="cafe"><b>Cloud Nine Café</b><small>Choose the weather of your day</small><span>↗</span></button>
+      <button type="button" data-jump="trail"><b>The Long Way Round</b><small>Find the hidden path</small><span>↗</span></button>
+      <button type="button" data-jump="sky"><b>The Quiet Observatory</b><small>Connect the little stars</small><span>↗</span></button>
+    </div>
+  </dialog>
 
-<section class="constellation-room" id="compliments">
- <div class="constellation-copy"><p class="eyebrow dark">A CONSTELLATION, JUST FOR YOU</p><h2>Six little<br><em>reasons to shine.</em></h2><p>Choose a star. Each one holds a small reminder, tucked away like a note in the night sky.</p><div class="constellation-reveal" id="complimentReveal" aria-live="polite"><span>✧ A LITTLE NOTE</span><b>Pick any star in the sky.</b><p>There is something lovely waiting behind each one.</p></div><div class="constellation-progress" id="complimentProgress">0 / 6 STARS DISCOVERED</div></div>
- <div class="constellation-board" aria-label="Interactive compliment constellation">
-  <svg viewBox="0 0 600 460" aria-hidden="true"><path d="M95 135 L215 65 L330 170 L470 80 L520 250 L375 365 L190 315 L95 135" /></svg>
-  <button data-compliment="0" class="compliment-star cs1" aria-label="Discover a note about her voice">♫</button>
-  <button data-compliment="1" class="compliment-star cs2" aria-label="Discover a note about kindness">✿</button>
-  <button data-compliment="2" class="compliment-star cs3" aria-label="Discover a note about her curiosity">✧</button>
-  <button data-compliment="3" class="compliment-star cs4" aria-label="Discover a note about her dreams">☾</button>
-  <button data-compliment="4" class="compliment-star cs5" aria-label="Discover a note about her strength">✦</button>
-  <button data-compliment="5" class="compliment-star cs6" aria-label="Discover a note celebrating her">♡</button>
-  <span class="constellation-center">T<br><small>FOR TEJASWINNI</small></span>
-  <span class="constellation-board-caption">THE CONSTELLATION OF LITTLE THINGS</span>
- </div>
-</section>
-<section class="gift-room" id="giftroom">
- <div class="gift-room-heading"><p class="eyebrow dark">THE MAGIC ROOM · OPEN WHENEVER YOU LIKE</p><h2>Four little<br><em>mystery gifts.</em></h2><p>Nothing to win, nothing to rush. Just tap a parcel and see what is tucked inside.</p></div>
- <div class="mystery-gifts">
-  <button class="mystery-gift" data-gift="0"><span class="gift-parcel">🎁</span><b>Something for a sunny day</b><small>SEALED WITH A LITTLE SUNSHINE</small><span class="gift-message">May a happy little surprise find you when you least expect it.</span></button>
-  <button class="mystery-gift" data-gift="1"><span class="gift-parcel">🎀</span><b>A pocket-sized pause</b><small>OPEN WHEN THE DAY IS LOUD</small><span class="gift-message">Take a breath. You do not have to do everything at once. One small thing is enough.</span></button>
-  <button class="mystery-gift" data-gift="2"><span class="gift-parcel">🌷</span><b>A little bouquet</b><small>JUST BECAUSE</small><span class="gift-message">Some things do not need a special occasion. A kind thought can be its own occasion.</span></button>
-  <button class="mystery-gift" data-gift="3"><span class="gift-parcel">⭐</span><b>A wish for later</b><small>FOR A FUTURE VERSION OF YOU</small><span class="gift-message">May the things you quietly hope for find their way to you, one lovely step at a time.</span></button>
- </div>
- <div class="gift-room-progress" id="giftRoomProgress">0 / 4 LITTLE GIFTS OPENED</div>
-</section>
+  <dialog class="keepsake-dialog" id="keepsakeDialog">
+    <button class="dialog-x" data-close-keepsake type="button" aria-label="Close keepsake">×</button>
+    <p class="eyebrow">A LITTLE THING TO KEEP</p>
+    <div class="keepsake-card" id="keepsakeCard">
+      <span class="keepsake-stamp">✳<small>WONDER<br>POST</small></span>
+      <span class="keepsake-kicker">GREETINGS FROM</span>
+      <h2>THE VALLEY OF<br>LITTLE WONDERS</h2>
+      <p id="keepsakeMessage">A little hello from somewhere lovely. May something good find you today.</p>
+      <span class="keepsake-sign">— with a little care ♡</span>
+      <span class="keepsake-flower">✿</span>
+    </div>
+    <button class="primary-button" id="downloadKeepsake" type="button">SAVE THIS LITTLE CARD <span>↓</span></button>
+    <p class="keepsake-foot" id="keepsakeStatus">A small keepsake, made in this little world.</p>
+  </dialog>
 
-<section class="secret-room" id="secret">
- <div class="secret-door"><div class="door-glow"></div><div class="door-frame"><div class="door-knob"></div><span>✳</span><small>THE SECRET GARDEN</small></div></div>
- <div class="secret-copy"><p class="eyebrow dark">YOU FOUND YOUR WAY</p><h2>Every little<br>thing led <em>here.</em></h2><p>Five keepsakes, four little adventures, and a world that was waiting to be explored. There's one last thing behind this door.</p><button class="primary-cta secret-cta" id="openSecret" disabled><span>THE DOOR IS STILL LOCKED</span><b>✧</b></button><p class="secret-status" id="secretStatus">COLLECT ALL FIVE KEEPSAKES TO OPEN IT.</p></div>
-</section>
-<section class="final-note" id="finalNote" hidden>
- <div class="letter-paper"><div class="letter-top"><span>A LITTLE LETTER</span><span>✳</span></div><p class="letter-kicker">FOR TEJASWINNI</p><h2>Some things are<br>lovely <em>just because.</em></h2><p>I made this little world hoping it would give you a few moments to wander, discover something unexpected, and smile at the small things.</p><p>I hope you keep finding beautiful places, kind people, unexpected joys, and reasons to look forward to tomorrow. And whenever the world feels a little too loud, I hope you remember that it's okay to take the scenic route.</p><p class="letter-end">This little world will always be here for another wander. <span>♡</span></p><div class="letter-bottom"><span>MADE WITH CARE</span><span>END OF VOL. 01 · BEGINNING OF ELSEWHERE</span></div></div>
- <button class="replay" id="replay">↺ START ANOTHER LITTLE ADVENTURE</button>
-</section>
-
-<section class="postcard-studio" id="postcardStudio">
- <div class="postcard-studio-copy"><p class="eyebrow dark">THE LITTLE POSTCARD STUDIO</p><h2>Make a postcard<br><em>from this world.</em></h2><p>Write a tiny note, choose a destination, and turn it into a postcard you can keep. It stays on this device until you choose to save it.</p></div>
- <div class="postcard-workbench">
-  <div class="postcard-preview" id="postcardPreview"><div class="postcard-preview-stamp">✿<small>WONDER<br>POST</small></div><span class="postcard-preview-kicker">GREETINGS FROM</span><h3 id="postcardPlace">THE VALLEY OF LITTLE WONDERS</h3><p id="postcardMessage">A little hello from somewhere lovely. May something good find you today.</p><span class="postcard-preview-sign">— with a little care ♡</span><span class="postcard-preview-mark">✳</span></div>
-  <div class="postcard-controls"><label for="postcardDestination">POSTCARD FROM</label><select id="postcardDestination"><option value="THE VALLEY OF LITTLE WONDERS">The Valley of Little Wonders</option><option value="CLOUD NINE CAFÉ">Cloud Nine Café</option><option value="THE WILD MEADOW">The Wild Meadow</option><option value="THE QUIET LAKE">The Quiet Lake</option><option value="THE NIGHT SKY">The Night Sky</option></select><label for="postcardText">YOUR LITTLE NOTE</label><textarea id="postcardText" rows="3" maxlength="180" placeholder="Write a tiny thought...">A little hello from somewhere lovely. May something good find you today.</textarea><button id="downloadPostcard" class="postcard-download">SAVE MY POSTCARD <span>↓</span></button><p id="postcardStatus" aria-live="polite">A small keepsake, made by you.</p></div>
- </div>
-</section>
-
-</main>
-<footer><span>THE WONDERLANDS <b>✳</b></span><span>AN IMAGINARY PLACE FOR A REAL PERSON</span><span>MADE WITH CARE · FOR TEJASWINNI</span></footer>
-<aside class="guide" id="guide"><button class="guide-bunny" id="guideButton" aria-label="Ask the bunny for a hint"><span class="bunny-ear ear-a"></span><span class="bunny-ear ear-b"></span><span class="bunny-face">•ᴗ•</span></button><div class="guide-bubble" id="guideBubble">Psst… I'm your tiny guide. Tap me if you get lost.</div></aside>
-<dialog class="journal" id="journal"><button class="dialog-close" id="journalClose" aria-label="Close">×</button><p class="eyebrow dark">FIELD JOURNAL · VOL. 01</p><h2>A few things<br>to remember.</h2><p>There is no timer here. You can explore in any order, leave and come back, or wander the same place twice. The little keepsakes you find will stay with you on this device.</p><div class="journal-progress"><span>YOUR KEEPSAKES</span><b id="journalCount">0 / 5</b></div><div class="journal-icons" id="journalIcons">○　○　○　○　○</div><div class="journal-extras" id="journalExtras">STORYBOOK 0/5 · GIFTS 0/4 · CONSTELLATION 0/6</div><p class="journal-sign">Take the scenic route. It's prettier. ♡</p></dialog>
-<script src="world.js?v=3" defer></script>
-
-<dialog class="explore-dialog" id="exploreDialog"><button class="dialog-close" id="exploreClose" aria-label="Close explore">×</button><p class="eyebrow dark">THE QUICK WAY AROUND</p><h2>Where shall we<br><em>wander next?</em></h2><label class="explore-search-label" for="exploreSearch">SEARCH THIS LITTLE WORLD</label><input id="exploreSearch" type="search" placeholder="Try meadow, stars, letter, postcard…"><div class="explore-results" id="exploreResults"><button data-explore-target="storybook"><b>The Storybook</b><small>Five chapters</small></button><button data-explore-target="world"><b>The Adventure Map</b><small>Four destinations</small></button><button data-explore-target="compliments"><b>The Constellation</b><small>Six little notes</small></button><button data-explore-target="giftroom"><b>The Magic Room</b><small>Four mystery gifts</small></button><button data-explore-target="postcardStudio"><b>The Postcard Studio</b><small>Make a keepsake</small></button><button data-explore-target="secret"><b>The Secret Garden</b><small>The final discovery</small></button></div></dialog>
-
-</body></html>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <footer class="site-footer"><span>THE LIVING ATLAS <b>✳</b></span><span>AN IMAGINARY PLACE FOR A REAL PERSON</span><span>MADE WITH CARE · FOR TEJASWINNI</span></footer>
+</body>
+</html>
