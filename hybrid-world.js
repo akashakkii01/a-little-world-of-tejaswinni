@@ -121,7 +121,8 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
   new ResizeObserver(resize).observe(host);resize();
   let frame=0,raf=0;
   const draw=()=>{
-    raf=requestAnimationFrame(draw);frame++;
+    if(!reduced) raf=requestAnimationFrame(draw);
+    frame++;
     pointer.x+=(pointer.tx-pointer.x)*.025;pointer.y+=(pointer.ty-pointer.y)*.025;
     camera.position.x=pointer.x;
     camera.position.y=1.25-pointer.y;
