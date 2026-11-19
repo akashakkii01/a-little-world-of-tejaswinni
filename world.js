@@ -33,7 +33,7 @@ function showScreen(id){
  window.scrollTo({top:0,behavior:reduced?'auto':'smooth'});
 }
 function updateWeather(){
- const labels={clear:'A CLEAR LITTLE DAY',soft:'A SOFTER KIND OF DAY',bright:'A BRIGHT LITTLE DAY',quiet:'A QUIET BLUE HOUR'};
+ const labels={clear:'A CLEAR LITTLE DAY',soft:'A SOFTER KIND OF DAY',bright:'A BRIGHT LITTLE DAY',quiet:'A QUIET BLUE HOUR',curious:'A SKY FULL OF POSSIBILITIES'};
  document.body.dataset.weather=state.mood||'clear';
  $('#weatherLabel').innerHTML='<i></i> '+(labels[state.mood]||labels.clear);
 }
@@ -124,7 +124,7 @@ function bindGarden(){
  button.addEventListener('click',()=>{
   if(state.gardenTaps>=3)return;
   state.gardenTaps++;save();render();
-  if(state.gardenTaps<3)button.animate([{transform:'scale(1)'},{transform:'scale(1.12) rotate(-5deg)'},{transform:'scale(1)'}],{duration:360});
+  if(state.gardenTaps<3&&!reduced)button.animate([{transform:'scale(1)'},{transform:'scale(1.12) rotate(-5deg)'},{transform:'scale(1)'}],{duration:360});
  });
  render();
 }
@@ -174,7 +174,6 @@ function bindTrail(){
  if(state.trail)renderTrailSteps();
 }
 function bindSky(){
- const pattern=[0,1,2,3,4];
  $$('[data-star]').forEach(button=>{
   const index=Number(button.dataset.star);
   if(state.stars.includes(index))button.classList.add('found');
@@ -249,7 +248,6 @@ $('#bunnyGuide').addEventListener('click',()=>{
  const index=state.found.length%hints.length;$('#bunnyHint').textContent=hints[index];toast(hints[index]);
 });
 $$('.art-spark').forEach(button=>button.addEventListener('click',()=>toast('You noticed a tiny detail. That is how every good adventure starts. ✧')));
-$('#wanderAgain').addEventListener('dblclick',resetJourney);
 function updateReadingProgress(){
  const max=document.documentElement.scrollHeight-window.innerHeight;
  $('#readingProgress').style.width=(max>0?window.scrollY/max*100:0)+'%';
