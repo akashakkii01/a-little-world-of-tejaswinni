@@ -1,100 +1,123 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#fff4f6" />
-  <meta name="description" content="A little world filled with smiles, surprises and happiness." />
-  <title>A Little World of Tejaswinni ♡</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#171426"><meta name="description" content="A tiny universe of soft skies, secret gardens and little surprises — made for Tejaswinni.">
+<title>A Little World of Tejaswinni ✦</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+:root{--night:#171426;--night2:#211c38;--ink:#30263c;--muted:#a9a0b9;--rose:#f3a9c1;--lav:#c5b4f5;--cream:#fff8ef;--gold:#f6dca2;--line:#ffffff20;--ease:cubic-bezier(.2,.75,.2,1)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:84px}body{margin:0;background:var(--night);color:#fff8f5;font-family:'DM Sans',sans-serif;overflow-x:hidden}button{font:inherit}button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:5px}::selection{background:#e9a9c4;color:#21172d}
+#sky{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}.noise{position:fixed;inset:0;z-index:8;pointer-events:none;opacity:.11;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E")}
+.progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--rose),var(--gold),var(--lav));z-index:20;box-shadow:0 0 14px #f3a9c1}
+.nav{position:fixed;z-index:15;top:0;left:0;right:0;height:76px;padding:0 5.5vw;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg,#171426e8,transparent);backdrop-filter:blur(10px)}.brand{font:600 19px 'Playfair Display';letter-spacing:-.4px;color:#fff;text-decoration:none}.brand b{color:var(--rose);font-weight:500}.nav-right{display:flex;gap:23px;align-items:center}.nav-link{font-size:10px;letter-spacing:1.7px;text-transform:uppercase;color:#c4bad0;text-decoration:none;transition:.25s}.nav-link:hover{color:#fff}.sound{border:1px solid #ffffff25;background:#ffffff0b;color:#f6dce6;border-radius:50px;padding:9px 14px;font-size:10px;letter-spacing:1px;cursor:pointer}
+main{position:relative;z-index:1}.hero{min-height:100svh;position:relative;display:grid;place-items:center;text-align:center;padding:110px 22px 80px;overflow:hidden;background:radial-gradient(ellipse at 50% 48%,#6b4c7760 0,#2c2447a8 35%,transparent 70%)}.hero:before{content:"";position:absolute;width:min(76vw,820px);aspect-ratio:1;border-radius:50%;border:1px solid #ffffff0b;box-shadow:0 0 0 70px #ffffff04,0 0 0 140px #ffffff03;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.hero-inner{position:relative;z-index:2;max-width:900px}.eyebrow{font-size:10px;letter-spacing:3.3px;text-transform:uppercase;color:#e7bfd0;display:flex;align-items:center;justify-content:center;gap:13px}.eyebrow:before,.eyebrow:after{content:"";height:1px;width:28px;background:linear-gradient(90deg,transparent,var(--rose))}
+.hero h1{font:500 clamp(54px,9vw,112px)/.98 'Playfair Display';letter-spacing:-4px;margin:28px 0 20px}.hero h1 em{color:var(--rose);font-weight:500}.hero-copy{font-size:14px;line-height:1.9;color:#c3b8ce;max-width:510px;margin:0 auto}.hero-actions{display:flex;justify-content:center;gap:12px;margin-top:34px;flex-wrap:wrap}.pill{border:1px solid #ffffff35;background:#ffffff0d;color:#fff;border-radius:50px;padding:14px 22px;font-size:11px;letter-spacing:.7px;cursor:pointer;transition:transform .3s var(--ease),background .3s}.pill.primary{background:linear-gradient(110deg,#d887a7,#a18bd1);border:0;box-shadow:0 12px 40px #c07ca933}.pill:hover{transform:translateY(-4px);background-color:#ffffff20}.pill.primary:hover{background:linear-gradient(110deg,#e39ab7,#b09ce2)}
+.world-stage{height:360px;max-width:760px;margin:20px auto 0;position:relative;perspective:900px;transform-style:preserve-3d}.moon{position:absolute;width:130px;height:130px;border-radius:50%;right:13%;top:22px;background:radial-gradient(circle at 35% 32%,#fff8dc,#f2d7c2 48%,#bd9bb9 100%);box-shadow:0 0 45px #f8dca277,0 0 120px #c3a1d544;animation:moonfloat 7s ease-in-out infinite}.moon:after{content:"";position:absolute;width:120px;height:120px;border-radius:50%;background:#322747;left:34px;top:-14px}.orbit{position:absolute;border:1px solid #ffffff24;border-radius:50%;left:50%;top:51%;transform:translate(-50%,-50%) rotateX(68deg);width:510px;height:190px}.orbit.two{width:650px;height:245px;transform:translate(-50%,-50%) rotateX(68deg) rotateZ(-18deg);border-color:#f1bfd31c}
+.floating-island{position:absolute;left:50%;top:52%;width:330px;height:190px;transform:translate(-50%,-42%) rotateX(54deg) rotateZ(-5deg);transform-style:preserve-3d;animation:islandfloat 6s ease-in-out infinite}.island-top{position:absolute;inset:0;background:linear-gradient(145deg,#9b8bb9,#5f557f 65%,#4d466b);clip-path:polygon(50% 0,100% 37%,50% 100%,0 37%);border:1px solid #ffffff35;filter:drop-shadow(0 25px 20px #08061388)}.island-side{position:absolute;inset:35px 0 -32px;background:linear-gradient(90deg,#4b3e66,#302944 50%,#493c60);clip-path:polygon(0 0,50% 63%,100% 0,100% 27%,50% 100%,0 27%);transform:translateZ(-1px)}.island-grass{position:absolute;width:100%;height:100%;clip-path:polygon(50% 0,100% 37%,50% 100%,0 37%);background:radial-gradient(ellipse at 50% 45%,#a7a0a0 0,#8b9d8c 38%,#667b78 78%);opacity:.8}.tree{position:absolute;width:12px;height:45px;background:#55435a;bottom:46%;left:48%;transform:translateZ(32px);border-radius:4px}.tree:before{content:"";position:absolute;width:49px;height:54px;left:-18px;top:-34px;background:linear-gradient(135deg,#b5b8a1,#718d80);border-radius:48% 52% 44% 56%;box-shadow:0 0 20px #c2d5a244}.tree.t2{left:27%;transform:scale(.72) translateZ(24px)}.tree.t3{left:69%;transform:scale(.82) translateZ(24px)}.tiny-house{position:absolute;width:43px;height:35px;left:55%;bottom:50%;background:#e7b7a9;transform:translateZ(38px);border-radius:4px;box-shadow:inset -5px -4px #bd8d8e}.tiny-house:before{content:"";position:absolute;left:-7px;top:-17px;border-left:28px solid transparent;border-right:28px solid transparent;border-bottom:21px solid #805d77}.tiny-house:after{content:"";position:absolute;left:17px;bottom:0;width:9px;height:18px;background:#77586d}.island-glow{position:absolute;width:250px;height:45px;left:50%;bottom:-58px;transform:translateX(-50%);background:#d6a7df33;filter:blur(24px);border-radius:50%}
+.tiny-star{position:absolute;color:#ffe9b8;font-size:19px;animation:twinkle 3s infinite}.ts1{left:16%;top:30%}.ts2{right:20%;top:45%;animation-delay:1s}.ts3{left:28%;bottom:14%;animation-delay:1.8s}.guide{position:absolute;left:10%;bottom:15%;width:73px;height:84px;animation:guidebob 3.8s ease-in-out infinite}.guide .body{position:absolute;bottom:0;width:68px;height:58px;border-radius:48% 48% 42% 42%;background:linear-gradient(140deg,#f2d4c3,#c99d91);box-shadow:inset -7px -5px #b98580,0 12px 25px #0c091a55}.guide .ear{position:absolute;top:0;width:24px;height:30px;background:#d8b0a0;border-radius:70% 70% 30% 30%;z-index:2}.guide .ear:first-child{left:7px;transform:rotate(-20deg)}.guide .ear:nth-child(2){right:7px;transform:rotate(20deg)}.guide .face{position:absolute;left:13px;top:17px;width:43px;height:35px;background:#f5e2d3;border-radius:50%;z-index:3}.guide .face:before,.guide .face:after{content:"";position:absolute;top:13px;width:4px;height:5px;background:#49343a;border-radius:50%}.guide .face:before{left:11px}.guide .face:after{right:11px}.guide .heart{position:absolute;z-index:4;bottom:7px;left:28px;color:#d97893;font-size:13px}
+.scroll-cue{position:absolute;bottom:25px;left:50%;transform:translateX(-50%);font-size:9px;letter-spacing:2px;color:#9f94ad}.scroll-cue span{display:block;font-size:18px;text-align:center;margin-top:7px;color:var(--rose);animation:bob 1.8s infinite}
+.section{padding:125px 7vw;position:relative}.section-head{text-align:center;max-width:700px;margin:0 auto 52px}.kicker{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#d99ab2}.section h2{font:500 clamp(38px,5vw,65px)/1.05 'Playfair Display';letter-spacing:-1.8px;margin:16px 0}.section h2 em{color:var(--rose);font-weight:500}.section-head p{font-size:13px;line-height:1.8;color:#b4a9c0;margin:0}
+.portal-section{background:linear-gradient(180deg,transparent,#fff8f00c 50%,transparent)}.portals{max-width:1050px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.portal{position:relative;min-height:285px;text-align:left;border:1px solid #ffffff18;border-radius:18px;padding:27px 25px;background:linear-gradient(145deg,#ffffff12,#ffffff04);overflow:hidden;color:white;cursor:pointer;transition:transform .45s var(--ease),border-color .4s,background .4s}.portal:before{content:"";position:absolute;width:180px;height:180px;border-radius:50%;right:-60px;top:-65px;background:var(--orb,#e6a8c4);filter:blur(1px);opacity:.17;transition:transform .6s}.portal:hover{transform:translateY(-9px);border-color:#ffffff50;background:linear-gradient(145deg,#ffffff1c,#ffffff08)}.portal:hover:before{transform:scale(1.35)}.portal .num{font-size:9px;letter-spacing:2px;color:#b8a8c9}.portal .symbol{font-size:35px;display:block;margin:31px 0 20px;filter:drop-shadow(0 0 17px #fff5)}.portal h3{font:500 25px 'Playfair Display';margin:0 0 9px}.portal p{font-size:11px;line-height:1.7;color:#bcb2c7;max-width:230px}.portal .enter{position:absolute;bottom:24px;right:25px;font-size:10px;letter-spacing:1px;color:#edc4d3}
+.garden-section{background:radial-gradient(ellipse at 50% 65%,#8b6b9b24,transparent 60%)}.garden-frame{max-width:1000px;margin:auto;min-height:350px;border:1px solid #ffffff20;border-radius:24px;position:relative;overflow:hidden;background:linear-gradient(180deg,#29223f,#342845 55%,#263b3a);box-shadow:0 30px 100px #09071466}.garden-frame:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,#9bb69c40,transparent 55%),linear-gradient(180deg,transparent,#13152666)}.garden-stars{position:absolute;inset:0;background-image:radial-gradient(#fff 1px,transparent 1.5px),radial-gradient(#f6dca2 1px,transparent 1.5px);background-size:89px 75px,131px 107px;background-position:12px 22px,43px 5px;opacity:.35}.flower-bed{position:absolute;left:0;right:0;bottom:0;height:55%;background:linear-gradient(180deg,transparent,#304c42 80%);display:flex;align-items:flex-end;justify-content:center;gap:clamp(14px,5vw,58px);padding-bottom:42px}.grow{width:65px;height:160px;position:relative;border:0;background:none;cursor:pointer;transform-origin:bottom;transition:transform .35s}.grow:hover{transform:scale(1.1) rotate(-3deg)}.stem{position:absolute;bottom:0;left:31px;width:3px;height:110px;background:linear-gradient(#86a88b,#47745f);border-radius:4px}.petal-head{position:absolute;bottom:94px;left:10px;width:46px;height:46px;color:var(--petal);font-size:43px;line-height:46px;text-shadow:0 0 22px var(--petal);transition:filter .3s}.grow:hover .petal-head{filter:brightness(1.4) drop-shadow(0 0 12px var(--petal))}.leaf{position:absolute;width:24px;height:12px;background:#729b7c;border-radius:100% 0 100% 0;bottom:47px;left:7px;transform:rotate(25deg)}.leaf.r{left:33px;bottom:68px;transform:scaleX(-1) rotate(25deg)}.garden-caption{position:absolute;top:26px;left:30px;font:italic 18px 'Playfair Display';color:#ead8e5}.garden-hint{position:absolute;right:27px;top:29px;font-size:9px;letter-spacing:1px;color:#c9bbcf}.wish{min-height:28px;text-align:center;margin:24px auto 0;font:italic 19px 'Playfair Display';color:#e9b5c9}
+.constellation-section{background:linear-gradient(180deg,transparent,#c3a5df0a,transparent)}.constellation{max-width:760px;height:330px;margin:auto;position:relative;border:1px solid #ffffff17;border-radius:24px;background:radial-gradient(ellipse at center,#8c79a31a,transparent 65%);overflow:hidden}.constellation svg{position:absolute;inset:0;width:100%;height:100%}.constellation line{stroke:#d8c4e9;stroke-opacity:.24;stroke-width:1.2;stroke-dasharray:4 7}.star-node{position:absolute;width:42px;height:42px;border:0;border-radius:50%;background:transparent;color:#9c91ac;font-size:26px;cursor:pointer;transform:translate(-50%,-50%);transition:.3s}.star-node:after{content:"";position:absolute;inset:7px;border-radius:50%;background:#f5dba1;filter:blur(9px);opacity:0;transition:.3s}.star-node:hover,.star-node.found{color:#fff0b9;text-shadow:0 0 17px #ffe3a3}.star-node.found:after{opacity:.75}.star-node span{position:relative;z-index:1}.constellation-note{margin:18px auto 0;text-align:center;color:#b8acc5;font-size:11px}.unlock{display:none;text-align:center;margin:23px auto 0;animation:rise .7s var(--ease)}.unlock.show{display:block}.unlock button{border:1px solid #e7c9a3;background:#f4d9a51a;color:#f5dfbb;border-radius:50px;padding:13px 21px;cursor:pointer;font-size:11px;letter-spacing:.8px}
+.letter-section{background:linear-gradient(180deg,#fff8f009,#fff8f00d)}.letter-wrap{max-width:780px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:16px}.letter{border:1px solid #ffffff1b;background:linear-gradient(145deg,#fff9f00e,#fff9f003);border-radius:16px;padding:25px;text-align:left;cursor:pointer;color:white;transition:.35s}.letter:hover{transform:translateY(-5px);background:#fff9f014}.letter .stamp{font-size:24px}.letter small{display:block;color:#d49eb7;letter-spacing:1.7px;font-size:8px;margin:20px 0 8px}.letter strong{font:500 23px 'Playfair Display'}.letter p{color:#b8adbf;font-size:11px;line-height:1.7;margin-bottom:0}
+.final{padding:140px 22px 130px;text-align:center;background:radial-gradient(ellipse at 50% 55%,#a17ca733,transparent 55%)}.final .big-star{font-size:45px;color:#f4dba7;filter:drop-shadow(0 0 25px #f4dba766);animation:twinkle 3s infinite}.final h2{font:500 clamp(43px,7vw,82px)/1.05 'Playfair Display';letter-spacing:-2px;margin:22px 0}.final h2 em{color:var(--rose)}.final p{max-width:510px;margin:0 auto;color:#bdb1c8;font-size:13px;line-height:1.9}.signature{font:italic 17px 'Playfair Display';color:#e6b5c7;margin:27px 0 34px}.footer{position:relative;z-index:1;border-top:1px solid #ffffff12;padding:24px 6vw;display:flex;justify-content:space-between;color:#82798f;font-size:9px;letter-spacing:1.2px}
+.modal{position:fixed;inset:0;z-index:30;display:none;place-items:center;padding:20px}.modal.open{display:grid;animation:fade .25s}.backdrop{position:absolute;inset:0;background:#0b0913c9;backdrop-filter:blur(12px)}.paper{position:relative;width:min(480px,100%);padding:48px 40px 40px;border:1px solid #ffffff30;border-radius:18px;background:radial-gradient(circle at 80% 0,#f5d0df22,transparent 45%),linear-gradient(145deg,#322943,#211b32);box-shadow:0 30px 100px #05040b99;text-align:center;animation:rise .45s var(--ease)}.close{position:absolute;right:16px;top:12px;border:0;background:none;color:#d8c8d8;font-size:27px;cursor:pointer}.paper .seal{font-size:32px;color:#e7b6c9}.paper .modal-kicker{font-size:9px;letter-spacing:2px;color:#d4a4b8;margin:15px 0}.paper h3{font:500 34px 'Playfair Display';margin:0 0 15px}.paper p{font:16px/1.9 'Playfair Display';color:#d0c2d3;margin:0}.paper .sign{margin-top:25px;color:#e5b5c7;font:italic 13px 'Playfair Display'}
+@keyframes moonfloat{50%{transform:translateY(-12px)}}@keyframes islandfloat{50%{translate:0 -13px;rotate:0deg}}@keyframes guidebob{50%{transform:translateY(-9px) rotate(3deg)}}@keyframes twinkle{0%,100%{opacity:.55;transform:scale(.9)}50%{opacity:1;transform:scale(1.15)}}@keyframes bob{50%{transform:translateY(6px)}}@keyframes rise{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:none}}@keyframes fade{from{opacity:0}to{opacity:1}}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}.reveal.visible{opacity:1;transform:none}
+@media(max-width:760px){.nav{height:66px;padding:0 20px}.nav-link{display:none}.nav-right{gap:8px}.brand{font-size:17px}.hero{padding-top:100px}.hero h1{letter-spacing:-2px}.world-stage{height:300px;transform:scale(.86);transform-origin:top center;margin-bottom:-35px;width:115%}.moon{width:100px;height:100px;right:12%;top:10px}.moon:after{width:92px;height:92px;left:27px}.orbit{width:410px;height:150px}.orbit.two{width:490px;height:185px}.floating-island{transform:translate(-50%,-42%) scale(.82) rotateX(54deg) rotateZ(-5deg)}.guide{left:3%;bottom:8%;transform:scale(.8)}.section{padding:88px 20px}.portals{grid-template-columns:1fr;max-width:430px}.portal{min-height:225px}.portal .symbol{margin:22px 0 14px}.garden-frame{min-height:320px}.flower-bed{gap:8px;padding-bottom:33px}.grow{transform:scale(.8);margin:0 -6px}.garden-caption{left:18px;top:19px;font-size:15px}.garden-hint{right:16px;top:22px;font-size:8px}.constellation{height:290px}.letter-wrap{grid-template-columns:1fr}.final{padding:100px 22px}.footer{flex-direction:column;gap:9px;align-items:center}.paper{padding:44px 26px 34px}.paper h3{font-size:29px}}
+@media(max-width:390px){.world-stage{transform:scale(.72);margin-bottom:-80px}.hero h1{font-size:50px}.flower-bed{gap:0}.grow{transform:scale(.7);margin:0 -10px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+</style>
 </head>
 <body>
-  <div class="grain"></div>
-  <div class="petal-field" aria-hidden="true"></div>
-  <header class="topbar">
-    <a class="brand" href="#" aria-label="A Little World home"><span class="brand-flower">✿</span> a little world <span>♡</span></a>
-    <span class="top-note">made with a little extra love</span>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="hero-sticker sticker-one">♡</div><div class="hero-sticker sticker-two">✿</div>
-      <div class="eyebrow"><span></span> A tiny place on the internet, just for you <span></span></div>
-      <div class="hero-art" aria-hidden="true">
-        <div class="sun-halo"></div><div class="flower flower-a">✿</div><div class="flower flower-b">✿</div>
-        <div class="little-bear"><div class="bear-ear left"></div><div class="bear-ear right"></div><div class="bear-face"><i></i><i></i><b></b><span></span></div><div class="bear-blush l"></div><div class="bear-blush r"></div><div class="bear-heart">♥</div></div>
-        <span class="sparkle s1">✧</span><span class="sparkle s2">✦</span><span class="sparkle s3">✧</span>
-      </div>
-      <p class="hello">hello, <span>Tejaswinni</span>!</p>
-      <h1>Welcome to your<br><em>little happy place.</em></h1>
-      <p class="hero-copy">A small corner of the internet made to remind you<br class="desktop"> that you deserve all the soft, lovely things.</p>
-      <button class="primary-btn" id="exploreBtn">Come on in <span>♡</span></button>
-      <div class="scroll-hint">A LITTLE WORLD TO EXPLORE <span>↓</span></div>
-    </section>
-
-    <section class="intro section-wrap" id="inside">
-      <div class="section-kicker">✿ &nbsp; YOUR LITTLE CORNER</div>
-      <h2>Some things are better<br><em>opened one by one.</em></h2>
-      <p class="section-copy">Take your time. There's no rush here.</p>
-      <div class="cards">
-        <button class="note-card blush" data-note="sad"><span class="card-icon">☁️</span><span class="card-tag">FOR THE CLOUDY DAYS</span><strong>When you're sad</strong><span class="card-desc">A little sunshine, whenever you need it.</span><span class="card-open">open this note ↗</span></button>
-        <button class="note-card lilac" data-note="sleep"><span class="card-icon">🌙</span><span class="card-tag">FOR THE QUIET NIGHTS</span><strong>When you can't sleep</strong><span class="card-desc">A soft thought to keep you company.</span><span class="card-open">open this note ↗</span></button>
-        <button class="note-card butter" data-note="reminder"><span class="card-icon">🌷</span><span class="card-tag">A LITTLE REMINDER</span><strong>When you need one</strong><span class="card-desc">Something you should never forget.</span><span class="card-open">open this note ↗</span></button>
-      </div>
-    </section>
-
-    <section class="garden section-wrap">
-      <div class="section-kicker">✿ &nbsp; A POCKET-SIZED GARDEN</div>
-      <h2>Pick a flower,<br><em>make a little wish.</em></h2>
-      <p class="section-copy">Every flower has a tiny message for you.</p>
-      <div class="flower-row">
-        <button class="garden-flower f-pink" data-flower="You make ordinary moments feel a little more lovely.">✿<small>blossom</small></button>
-        <button class="garden-flower f-purple" data-flower="I hope today gives you a hundred little reasons to smile.">✿<small>daydream</small></button>
-        <button class="garden-flower f-yellow" data-flower="Never forget how much magic you carry in your own little way.">✿<small>sunshine</small></button>
-        <button class="garden-flower f-peach" data-flower="May life always be gentle with your beautiful heart.">✿<small>peachy</small></button>
-        <button class="garden-flower f-blue" data-flower="You deserve the kind of happiness that feels like coming home.">✿<small>bluebell</small></button>
-      </div>
-      <div class="flower-message" id="flowerMessage" aria-live="polite">Tap any flower to find your message ♡</div>
-    </section>
-
-    <section class="gift-section section-wrap">
-      <div class="gift-copy">
-        <div class="section-kicker">✿ &nbsp; SOMETHING FOR YOU</div>
-        <h2>A tiny gift,<br><em>just because.</em></h2>
-        <p>Not every gift needs a special occasion. Some are simply little reminders that someone thought of you.</p>
-        <button class="outline-btn" id="giftBtn">Open your gift <span>↗</span></button>
-      </div>
-      <button class="gift-illustration" id="giftArt" aria-label="Open the gift box">
-        <span class="gift-spark gs1">✦</span><span class="gift-spark gs2">✧</span>
-        <span class="gift-lid"><i></i></span><span class="gift-box"><i></i></span>
-        <span class="gift-caption">a little something ♡</span>
-      </button>
-    </section>
-
-    <section class="closing section-wrap">
-      <div class="closing-flower">✿</div>
-      <div class="section-kicker">BEFORE YOU GO</div>
-      <h2>One last thing,<br><em>Tejaswinni...</em></h2>
-      <p>May your days be sprinkled with kindness, your nights with peace, and your life with the kind of little moments that make you smile for no reason.</p>
-      <div class="signature">With a little thought and lots of good wishes <span>♡</span></div>
-      <button class="surprise-btn" id="surpriseBtn">One last surprise <span>✧</span></button>
-    </section>
-  </main>
-
-  <footer><span>made for Tejaswinni, with ♡</span><span>stay lovely. stay you.</span></footer>
-
-  <div class="modal" id="modal" aria-hidden="true">
-    <div class="modal-backdrop" data-close></div>
-    <div class="modal-paper" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="modal-close" data-close aria-label="Close">×</button>
-      <div class="modal-flower">✿</div><div class="modal-kicker">A LITTLE NOTE FOR YOU</div>
-      <h2 id="modalTitle">A note for you</h2><p id="modalText"></p>
-      <div class="modal-sign">always keep smiling ♡</div>
-    </div>
+<canvas id="sky" aria-hidden="true"></canvas><div class="noise"></div><div class="progress" id="progress"></div>
+<header class="nav"><a class="brand" href="#home">a little <b>world</b> ✦</a><div class="nav-right"><a class="nav-link" href="#places">little places</a><a class="nav-link" href="#garden">the garden</a><a class="nav-link" href="#letters">tiny letters</a><button class="sound" id="sparkleMode" type="button">✧ SPARKLE MODE</button></div></header>
+<main>
+<section class="hero" id="home">
+ <div class="hero-inner">
+  <div class="eyebrow">a little universe, made for you</div>
+  <h1>Somewhere<br>between <em>magic</em><br>& a smile.</h1>
+  <p class="hero-copy">Hello, Tejaswinni. I made you a tiny world to wander through — with quiet corners, a garden that keeps blooming, and a few surprises tucked away.</p>
+  <div class="hero-actions"><button class="pill primary" id="begin">Step into your world&nbsp; ↗</button><button class="pill" id="skipToStars">Find the hidden stars&nbsp; ✦</button></div>
+  <div class="world-stage" id="worldStage" aria-hidden="true">
+   <div class="moon"></div><div class="orbit"></div><div class="orbit two"></div><span class="tiny-star ts1">✦</span><span class="tiny-star ts2">✧</span><span class="tiny-star ts3">✦</span>
+   <div class="floating-island"><div class="island-side"></div><div class="island-top"><div class="island-grass"></div></div><div class="tree"></div><div class="tree t2"></div><div class="tree t3"></div><div class="tiny-house"></div><div class="island-glow"></div></div>
+   <div class="guide"><i class="ear"></i><i class="ear"></i><div class="body"></div><div class="face"></div><div class="heart">♥</div></div>
   </div>
-  <script src="script.js"></script>
-</body>
-</html>
+ </div><div class="scroll-cue">SCROLL TO EXPLORE <span>↓</span></div>
+</section>
+<section class="section portal-section" id="places">
+ <div class="section-head reveal"><div class="kicker">✦ &nbsp; LITTLE PLACES, LITTLE FEELINGS</div><h2>Choose a little<br><em>place to visit.</em></h2><p>Every door opens to something small, thoughtful and just a little magical.</p></div>
+ <div class="portals">
+  <button class="portal reveal" data-open="cloud"><span class="num">01 / THE CLOUD ROOM</span><span class="symbol">☁</span><h3>For softer days</h3><p>A gentle pause for whenever the day feels a little too loud.</p><span class="enter">OPEN DOOR ↗</span></button>
+  <button class="portal reveal" data-open="moon"><span class="num">02 / THE MOON ROOM</span><span class="symbol">☾</span><h3>For quiet nights</h3><p>A little reminder that tomorrow can begin slowly, too.</p><span class="enter">OPEN DOOR ↗</span></button>
+  <button class="portal reveal" data-open="sun"><span class="num">03 / THE SUN ROOM</span><span class="symbol">✺</span><h3>For bright beginnings</h3><p>A pocketful of encouragement for the dreams you're growing.</p><span class="enter">OPEN DOOR ↗</span></button>
+ </div>
+</section>
+<section class="section garden-section" id="garden">
+ <div class="section-head reveal"><div class="kicker">✿ &nbsp; THE EVER-BLOOMING GARDEN</div><h2>A flower for a thought,<br><em>a wish for your day.</em></h2><p>Tap a bloom. The garden has a few things it would like to tell you.</p></div>
+ <div class="garden-frame reveal"><div class="garden-stars"></div><div class="garden-caption">the little garden at dusk</div><div class="garden-hint">CHOOSE A BLOOM ✧</div>
+  <div class="flower-bed">
+   <button class="grow" style="--petal:#f3a9c1" data-wish="I hope something unexpectedly lovely finds you today."><span class="stem"></span><span class="leaf"></span><span class="leaf r"></span><span class="petal-head">✿</span></button>
+   <button class="grow" style="--petal:#c9b5f0" data-wish="May your mind feel lighter and your heart feel at home."><span class="stem"></span><span class="leaf"></span><span class="leaf r"></span><span class="petal-head">✿</span></button>
+   <button class="grow" style="--petal:#f4d99d" data-wish="Never make your dreams smaller just to make them easier to reach."><span class="stem"></span><span class="leaf"></span><span class="leaf r"></span><span class="petal-head">✿</span></button>
+   <button class="grow" style="--petal:#f2b8a4" data-wish="May you always find a reason to laugh at the little things."><span class="stem"></span><span class="leaf"></span><span class="leaf r"></span><span class="petal-head">✿</span></button>
+   <button class="grow" style="--petal:#a8c9d8" data-wish="You deserve kindness — from the world, and from yourself."><span class="stem"></span><span class="leaf"></span><span class="leaf r"></span><span class="petal-head">✿</span></button>
+  </div>
+ </div><div class="wish" id="wish" aria-live="polite">A little wish is waiting to bloom ♡</div>
+</section>
+<section class="section constellation-section" id="stars">
+ <div class="section-head reveal"><div class="kicker">✧ &nbsp; A SMALL SECRET IN THE SKY</div><h2>Connect the little<br><em>pieces of starlight.</em></h2><p>There are three hidden stars in this sky. Find them all to open a little something.</p></div>
+ <div class="constellation reveal"><svg viewBox="0 0 760 330" preserveAspectRatio="none" aria-hidden="true"><line x1="155" y1="95" x2="380" y2="55"/><line x1="380" y1="55" x2="585" y2="130"/><line x1="155" y1="95" x2="285" y2="245"/><line x1="285" y1="245" x2="585" y2="130"/><line x1="585" y1="130" x2="640" y2="260"/></svg>
+  <button class="star-node" style="left:20.4%;top:29%" data-star="0" aria-label="Find star one"><span>✦</span></button><button class="star-node" style="left:50%;top:17%" data-star="1" aria-label="Find star two"><span>✧</span></button><button class="star-node" style="left:77%;top:39%" data-star="2" aria-label="Find star three"><span>✦</span></button><button class="star-node" style="left:37.5%;top:74%" data-star="3" aria-label="Find a bonus star"><span>✧</span></button><button class="star-node" style="left:84%;top:79%" data-star="4" aria-label="Find a bonus star"><span>✦</span></button>
+ </div><div class="constellation-note" id="starCount" aria-live="polite">0 / 3 little stars found</div><div class="unlock" id="unlock"><button id="unlockBtn">You found them all — open your secret ✧</button></div>
+</section>
+<section class="section letter-section" id="letters">
+ <div class="section-head reveal"><div class="kicker">♡ &nbsp; NOTES TO KEEP</div><h2>Little letters for<br><em>little moments.</em></h2><p>Open whichever one feels right. No particular order, no hurry.</p></div>
+ <div class="letter-wrap">
+  <button class="letter reveal" data-letter="one"><span class="stamp">✉</span><small>LETTER NO. 01</small><strong>For when you need a pause</strong><p>A tiny permission slip to slow down and breathe.</p></button>
+  <button class="letter reveal" data-letter="two"><span class="stamp">☾</span><small>LETTER NO. 02</small><strong>For the overthinking hours</strong><p>Some thoughts can wait until the morning.</p></button>
+  <button class="letter reveal" data-letter="three"><span class="stamp">✿</span><small>LETTER NO. 03</small><strong>For the days you doubt yourself</strong><p>A reminder of all the good you carry.</p></button>
+  <button class="letter reveal" data-letter="four"><span class="stamp">☀</span><small>LETTER NO. 04</small><strong>For a fresh beginning</strong><p>Every day gives you another little first page.</p></button>
+ </div>
+</section>
+<section class="final" id="final"><div class="big-star">✦</div><div class="kicker">A LITTLE NOTE BEFORE YOU GO</div><h2>Keep a little<br><em>magic with you.</em></h2><p>I hope this tiny world gave you a moment to pause, smile, and feel celebrated. Take the good thoughts with you — the rest can stay here, among the stars.</p><div class="signature">Made with a little extra thought, just for you ♡</div><button class="pill primary" id="again">Wander through again&nbsp; ↗</button></section>
+</main>
+<footer class="footer"><span>A LITTLE WORLD OF TEJASWINNI ✦</span><span>TAKE THE SOFT MOMENTS WITH YOU ♡</span></footer>
+<div class="modal" id="modal" aria-hidden="true"><div class="backdrop" data-close></div><div class="paper" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="close" data-close aria-label="Close">×</button><div class="seal" id="modalSeal">✿</div><div class="modal-kicker" id="modalKicker">A LITTLE NOTE FOR YOU</div><h3 id="modalTitle">A note for you</h3><p id="modalText"></p><div class="sign">with a little warmth ♡</div></div></div>
+<script>
+(()=>{
+const $=(s,root=document)=>root.querySelector(s),$$=(s,root=document)=>[...root.querySelectorAll(s)];
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const modal=$('#modal'),mTitle=$('#modalTitle'),mText=$('#modalText'),mSeal=$('#modalSeal'),mKicker=$('#modalKicker');
+const copy={
+ cloud:['For the softer days','It is okay if today asks a little too much of you. You do not have to solve everything at once, and you do not have to turn every difficult feeling into a lesson. Take a breath. Drink some water. Let one small thing be enough for now. The sky changes, even when it does so slowly. ☁','☁'],
+ moon:['A thought for the quiet hours','The unfinished things can wait. The conversations you are replaying can rest. You have done enough for today. Let the night be a place where you do not have to figure everything out. I hope tomorrow meets you gently. ☾','☾'],
+ sun:['A little sunshine for you','Keep making room for the things that excite you. Your dreams are allowed to be big, your pace is allowed to be your own, and starting again is always an option. There is so much ahead that you have not met yet. ✺','✺'],
+ one:['A pause is not falling behind','You are allowed to rest without earning it first. Step away for a moment, stretch, breathe, and come back when you are ready. The world can wait a little. ♡','✉'],
+ two:['Let tomorrow hold some of it','Not every thought deserves a midnight meeting. Some things become clearer after sleep, some things become smaller with time, and some things do not need an answer tonight. Put them down for now. 🌙','☾'],
+ three:['A reminder you can borrow','You do not need to be the best at everything to be someone worth celebrating. You can be learning, growing, changing your mind and still be doing wonderfully. Please be as kind to yourself as you are to the people you care about. ✿','✿'],
+ four:['There is always another first page','A new beginning does not need a grand announcement. Sometimes it is one brave decision, one small habit, one honest try. Wherever you are starting from, I hope you give yourself the chance to see how far you can go. ☀','☀'],
+ secret:['You found the little secret','Some surprises are not really things. Sometimes they are tiny reminders that someone took a little time to make something, simply in the hope that it would bring a smile. This whole little universe is one of those. I hope you keep finding lovely things in unexpected places. ✨','✧']
+};
+function open(title,body,seal='✿',kicker='A LITTLE NOTE FOR YOU'){mTitle.textContent=title;mText.textContent=body;mSeal.textContent=seal;mKicker.textContent=kicker;modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';$('.close').focus()}
+function close(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow=''}
+$$('[data-close]').forEach(x=>x.addEventListener('click',close));document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+$('#begin').addEventListener('click',()=>$('#places').scrollIntoView({behavior:reduce?'auto':'smooth'}));$('#skipToStars').addEventListener('click',()=>$('#stars').scrollIntoView({behavior:reduce?'auto':'smooth'}));$('#again').addEventListener('click',()=>window.scrollTo({top:0,behavior:reduce?'auto':'smooth'}));
+$$('[data-open]').forEach(b=>b.addEventListener('click',()=>{const d=copy[b.dataset.open];open(d[0],d[1],d[2])}));
+$$('[data-letter]').forEach(b=>b.addEventListener('click',()=>{const map={one:'one',two:'two',three:'three',four:'four'},d=copy[map[b.dataset.letter]];open(d[0],d[1],d[2],'A LETTER, JUST FOR YOU')}));
+$$('[data-wish]').forEach((b,i)=>b.addEventListener('click',()=>{ $('#wish').textContent=b.dataset.wish+' ♡';b.animate([{transform:'scale(1)'},{transform:'scale(1.16) rotate(-6deg)'},{transform:'scale(1)'}],{duration:450,easing:'ease-out'});}));
+let found=new Set();$$('[data-star]').forEach(b=>b.addEventListener('click',()=>{const n=b.dataset.star;if(found.has(n))return;found.add(n);b.classList.add('found');$('#starCount').textContent=found.size+' / 3 little stars found'+(found.size>=3?' — the sky is glowing!':'');if(found.size>=3)$('#unlock').classList.add('show');}));
+$('#unlockBtn').addEventListener('click',()=>{const d=copy.secret;open(d[0],d[1],d[2],'A SECRET FROM THE NIGHT SKY')});
+let sparkle=false;$('#sparkleMode').addEventListener('click',()=>{sparkle=!sparkle;document.body.classList.toggle('sparkle-mode',sparkle);$('#sparkleMode').textContent=sparkle?'✦ SPARKLES ON':'✧ SPARKLE MODE';$('#sky').style.opacity=sparkle?'1':'.82';});
+const progress=$('#progress');function onScroll(){const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=(max>0?scrollY/max*100:0)+'%'}addEventListener('scroll',onScroll,{passive:true});onScroll();
+if('IntersectionObserver'in window&&!reduce){const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.12});$$('.reveal').forEach(el=>io.observe(el))}else $$('.reveal').forEach(el=>el.classList.add('visible'));
+const canvas=$('#sky'),ctx=canvas.getContext('2d');let w=0,h=0,dpr=1,stars=[],pointer={x:.5,y:.5};function resize(){dpr=Math.min(devicePixelRatio||1,1.7);w=innerWidth;h=innerHeight;canvas.width=w*dpr;canvas.height=h*dpr;canvas.style.width=w+'px';canvas.style.height=h+'px';ctx.setTransform(dpr,0,0,dpr,0,0);stars=Array.from({length:Math.min(115,Math.floor(w*h/9500))},()=>({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.45+.25,a:Math.random()*.65+.15,p:Math.random()*6.28,s:Math.random()*.012+.003}))}function draw(t){ctx.clearRect(0,0,w,h);for(const s of stars){const tw=reduce?s.a:s.a*(.72+.28*Math.sin(t*s.s+s.p));ctx.beginPath();ctx.arc(s.x+((pointer.x-.5)*-8),s.y+((pointer.y-.5)*-8),s.r,0,Math.PI*2);ctx.fillStyle='rgba(255,238,220,'+tw+')';ctx.fill();if(s.r>1.25){ctx.strokeStyle='rgba(243,197,218,'+(tw*.25)+')';ctx.beginPath();ctx.moveTo(s.x-4,s.y);ctx.lineTo(s.x+4,s.y);ctx.moveTo(s.x,s.y-4);ctx.lineTo(s.x,s.y+4);ctx.stroke()}}if(!reduce)requestAnimationFrame(draw)}resize();addEventListener('resize',resize);if(!reduce)requestAnimationFrame(draw);else draw(0);addEventListener('pointermove',e=>{pointer.x=e.clientX/w;pointer.y=e.clientY/h},{passive:true});
+const stage=$('#worldStage');if(!reduce&&matchMedia('(pointer:fine)').matches){addEventListener('pointermove',e=>{const x=(e.clientX/w-.5),y=(e.clientY/h-.5);stage.style.transform='translate3d('+x*8+'px,'+y*7+'px,0)'},{passive:true});}
+})();
+</script>
+</body></html>
