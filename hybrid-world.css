@@ -54,7 +54,17 @@ body{background:#101a1a;color:var(--hybrid-ink)}
 .place-art{position:relative;isolation:isolate;overflow:hidden;background-color:#1b302b}
 .place-art:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,18,17,.44),transparent 62%);z-index:1}
 .place-art>*{display:none!important}
-.place-art[data-art="garden"]{background-image:url("https://jcleacockphotogallery.com/img/s/v-10/p2482135051-4.jpg")!important}
-.place-art[data-art="cafe"]{background-image:url("https://cdn.sanity.io/images/m6nlvvfa/production/92f154235c4b683aaed1f9a2630874da4d340481-1280x720.jpg?fit=clip&fm=webp&q=75&w=1920")!important}
+.place-art[data-art="garden"]{background-image:url("https://images.unsplash.com/photo-1617067128946-8c4f807d91e1?auto=format&fit=crop&w=1800&q=85")!important}
+.place-art[data-art="cafe"]{background-image:url("https://images.unsplash.com/photo-1758861356142-546a3822ab1a?auto=format&fit=crop&w=1800&q=85")!important}
 .place-art[data-art="trail"]{background-image:url("https://images.unsplash.com/photo-1572944044779-d411c1febb59?auto=format&fit=crop&w=1800&q=85")!important}
-.place-art[data-art="sky"]{background-image:url("https://www.spacecentre.co.uk/media/x2xh1xwy/night-sky-observatory-scaled-1900x0-c-default.jpg")!important}
+.place-art[data-art="sky"]{background-image:url("https://images.unsplash.com/photo-1788238025184-0fc6fb3ca330?auto=format&fit=crop&w=1800&q=85")!important}
+
+.atlas-bunny,.atlas-bunny *,.pin-symbol{display:none!important}
+.atlas-pin{padding:15px 19px!important}
+.atlas-pin .pin-copy{display:flex;flex-direction:column;gap:5px}
+.atlas-pin .pin-copy b{font-size:10px;letter-spacing:.12em}
+.atlas-pin .pin-copy small{font-size:11px;letter-spacing:0;text-transform:none}
+.map-heading .eyebrow,.place-content .eyebrow{color:#d6bd96}
+.mood-option>span,.trail-option>span,.seed-button>span{display:none!important}
+.place-interaction{color:#f7f2e7}
+.place-interaction button{border-color:#ffffff38}
