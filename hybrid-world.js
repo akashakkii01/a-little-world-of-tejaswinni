@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 (() => {
   const host = document.getElementById('hybridCanvasWrap');
@@ -67,7 +68,24 @@ import * as THREE from 'three';
       li++;
     }
   }
-  scene.add(trunks,leaves);
+  const fallbackTrees = new THREE.Group();
+  fallbackTrees.add(trunks,leaves);
+  scene.add(fallbackTrees);
+  // A real, textured CC0 Scots pine model replaces the simple fallback canopy when loaded.
+  const treeLoader = new GLTFLoader();
+  treeLoader.load('https://files.innerscene.com/library/mature-scots-pine-tree-280307e1/e52dca598822dfa9ffa9/mature-scots-pine-tree.glb', gltf => {
+    fallbackTrees.visible = false;
+    const source = gltf.scene;
+    for (let i=0;i<24;i++) {
+      const tree = source.clone(true);
+      const scale = .095 + Math.random()*.055;
+      tree.scale.setScalar(scale);
+      tree.position.set((Math.random()-.5)*22,-1.58,-5+Math.random()*7);
+      tree.rotation.y = Math.random()*Math.PI*2;
+      tree.traverse(node => { if (node.isMesh) { node.castShadow = true; node.receiveShadow = true; } });
+      scene.add(tree);
+    }
+  }, undefined, () => { fallbackTrees.visible = true; });
 
   const rockGeo = new THREE.DodecahedronGeometry(.42,1);
   const rockMat = new THREE.MeshStandardMaterial({color:0x59625a,roughness:.96});
