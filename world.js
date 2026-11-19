@@ -50,7 +50,7 @@ function updateComplimentProgress(){$('#complimentProgress').textContent=state.c
 $$('[data-compliment]').forEach(b=>{const i=Number(b.dataset.compliment);if(state.constellation.includes(i))b.classList.add('discovered');b.addEventListener('click',()=>{if(!state.constellation.includes(i)){state.constellation.push(i);save()}b.classList.add('discovered');$('#complimentReveal').innerHTML='<span>✧ A LITTLE NOTE FOR YOU</span><b></b><p></p>';$('#complimentReveal').querySelector('b').textContent=complimentNotes[i][0];$('#complimentReveal').querySelector('p').textContent=complimentNotes[i][1];updateComplimentProgress()})});
 updateComplimentProgress();
 /* Mystery gifts reveal once and remain open on this device. */
-const giftNotes=$('.mystery-gift');
+const giftNotes=$$('.mystery-gift');
 function updateGiftProgress(){$('#giftRoomProgress').textContent=state.gifts.length+' / 4 LITTLE GIFTS OPENED';const extras=$('#journalExtras');if(extras)extras.textContent='STORYBOOK '+state.chapters.length+'/5 · GIFTS '+state.gifts.length+'/4 · CONSTELLATION '+state.constellation.length+'/6';giftNotes.forEach((b,i)=>{if(state.gifts.includes(i))b.classList.add('opened')})}
 giftNotes.forEach(b=>b.addEventListener('click',()=>{const i=Number(b.dataset.gift);if(!state.gifts.includes(i)){state.gifts.push(i);save()}b.classList.add('opened');updateGiftProgress()}));
 updateGiftProgress();
