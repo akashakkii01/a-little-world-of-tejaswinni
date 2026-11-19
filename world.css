@@ -10,6 +10,7 @@ body{margin:0;min-height:100vh;background:var(--paper);color:var(--ink);font-fam
 body[data-weather="soft"]{--paper:#eae6e2;--paper-light:#f7f3ee;--sage:#879caa;--sage-light:#c4d1d7;--rose:#c68e99}
 body[data-weather="bright"]{--paper:#f3eddd;--paper-light:#fff9e9;--sage:#9aa56d;--sage-light:#d9d7a7;--rose:#d9a17f}
 body[data-weather="quiet"]{--paper:#e4e7e3;--paper-light:#f4f6f0;--sage:#6e8786;--sage-light:#b9cfca;--rose:#b9a0b2}
+body[data-weather="curious"]{--paper:#e8e8df;--paper-light:#faf9ed;--sage:#9a9e7b;--sage-light:#d5d6b5;--rose:#c89a86}
 button,input{font:inherit}
 button{color:inherit;-webkit-tap-highlight-color:transparent}
 button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #b56f65;outline-offset:4px}
@@ -87,6 +88,7 @@ h1 em,h2 em{font-weight:500;color:#b7796f}
 .label-left{left:3%;bottom:13%}.label-right{right:4%;bottom:8%}
 .atlas-board-foot{position:absolute;z-index:5;left:0;right:0;bottom:0;padding:13px 19px;background:rgba(28,52,44,.72);color:#f4eddd;display:flex;justify-content:space-between;font:8px var(--mono);letter-spacing:.16em}
 .map-lower{display:flex;justify-content:space-between;align-items:center;padding-top:17px;color:#879087;font:8px var(--mono);letter-spacing:.14em}
+.map-lower-actions{display:flex;align-items:center;gap:22px}
 .text-link{border:0;background:transparent;color:#9d7469;font:9px var(--mono);letter-spacing:.13em;padding:7px 0;cursor:pointer}
 .text-link:hover{color:var(--deep)}
 .place-screen{max-width:1500px;margin:auto;padding:32px clamp(22px,6vw,90px) 70px}
@@ -264,7 +266,7 @@ h1 em,h2 em{font-weight:500;color:#b7796f}
  .pin-status{font-size:12px}
  .atlas-bunny{right:31%;bottom:13%}.atlas-bunny span{font-size:8px}.atlas-bunny b{font-size:27px}
  .atlas-label{font-size:6px}.atlas-board-foot{padding:11px;font-size:7px}
- .map-lower{font-size:7px}
+ .map-lower{font-size:7px}.map-lower-actions{gap:12px}
  .place-screen{padding:22px 18px 35px}
  .place-layout{display:flex;flex-direction:column;align-items:stretch;padding:25px 0 0;gap:24px}
  .place-art{min-height:280px;aspect-ratio:1.4/1}
