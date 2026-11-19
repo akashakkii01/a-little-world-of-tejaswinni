@@ -1,6 +1,6 @@
 (()=>{'use strict';
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const $=(s,r=document)=>r.querySelector(s);
+const $=(s,r=document)=>r.querySelector(s),$=(s,r=document)=>[...r.querySelectorAll(s)];
 const buddy=document.createElement('aside');buddy.className='pocket-buddy';buddy.innerHTML=`
  <div class="cute-panel" id="cutePanel" aria-hidden="true">
   <h4>Your tiny comfort corner ♡</h4><p>Pick the kind of moment you're having. I'll find a little note for it.</p>
