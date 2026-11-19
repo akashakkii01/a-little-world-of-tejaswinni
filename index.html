@@ -39,7 +39,8 @@
  <div class="invitation-copy"><p class="eyebrow dark">A LETTER BEFORE YOU WANDER</p><h2>Every adventure<br>deserves a <em>hello.</em></h2><p>There is a little envelope here with your name on it. Open it whenever you feel like it. No rush.</p><span class="invitation-caption">A SMALL INVITATION · SEALED WITH CARE</span></div>
  <div class="envelope-stage"><button class="wonder-envelope" id="wonderEnvelope" aria-expanded="false" aria-controls="invitationLetter" aria-label="Open your little invitation"><span class="envelope-back"></span><span class="envelope-letter"><small>FOR TEJASWINNI</small><b>A little<br>hello.</b><i>✳</i></span><span class="envelope-flap"></span><span class="envelope-seal">✿</span></button><div class="envelope-hint" id="envelopeHint">TAP TO OPEN THE LETTER</div><article class="invitation-letter" id="invitationLetter" hidden><span>A NOTE FOR YOU</span><h3>Welcome to your little world.</h3><p>I made this place so you could wander without a plan, find tiny surprises, and take a pause whenever you need one. I hope it gives you a few reasons to smile.</p><small>— with a little care ♡</small></article></div>
 </section>
-\n<section class="storybook-section" id="storybook">
+
+<section class="storybook-section" id="storybook">
  <div class="storybook-heading"><div><p class="eyebrow dark">A STORY WITH ROOM TO WANDER</p><h2>Five little<br><em>chapters.</em></h2><span class="storybook-progress" id="chapterProgress">0 / 5 PAGES READ</span></div><p>Like a storybook, except you get to choose which page to open first. Each page leaves a little mark in your field journal.</p></div>
  <div class="storybook-layout">
   <div class="chapter-shelf" role="group" aria-label="Choose a story chapter">
@@ -59,7 +60,8 @@
   </article>
  </div>
 </section>
-\n<section class="world" id="world">
+
+<section class="world" id="world">
  <div class="section-intro"><div><p class="eyebrow dark">YOUR MAP HAS ARRIVED</p><h2>Pick a little<br><em>adventure.</em></h2></div><p>Four places. A handful of secrets.<br>And a small guide who knows the way.<br><span>Some discoveries are hiding in plain sight.</span></p></div>
  <div class="map-wrap">
   <div class="map-topline"><span>✳ THE HAND-DRAWN MAP</span><span id="mapCounter">0 / 5 KEEPSAKES FOUND</span></div>
@@ -139,7 +141,8 @@
  </div>
  <div class="gift-room-progress" id="giftRoomProgress">0 / 4 LITTLE GIFTS OPENED</div>
 </section>
-\n<section class="secret-room" id="secret">
+
+<section class="secret-room" id="secret">
  <div class="secret-door"><div class="door-glow"></div><div class="door-frame"><div class="door-knob"></div><span>✳</span><small>THE SECRET GARDEN</small></div></div>
  <div class="secret-copy"><p class="eyebrow dark">YOU FOUND YOUR WAY</p><h2>Every little<br>thing led <em>here.</em></h2><p>Five keepsakes, four little adventures, and a world that was waiting to be explored. There's one last thing behind this door.</p><button class="primary-cta secret-cta" id="openSecret" disabled><span>THE DOOR IS STILL LOCKED</span><b>✧</b></button><p class="secret-status" id="secretStatus">COLLECT ALL FIVE KEEPSAKES TO OPEN IT.</p></div>
 </section>
@@ -155,11 +158,13 @@
   <div class="postcard-controls"><label for="postcardDestination">POSTCARD FROM</label><select id="postcardDestination"><option value="THE VALLEY OF LITTLE WONDERS">The Valley of Little Wonders</option><option value="CLOUD NINE CAFÉ">Cloud Nine Café</option><option value="THE WILD MEADOW">The Wild Meadow</option><option value="THE QUIET LAKE">The Quiet Lake</option><option value="THE NIGHT SKY">The Night Sky</option></select><label for="postcardText">YOUR LITTLE NOTE</label><textarea id="postcardText" rows="3" maxlength="180" placeholder="Write a tiny thought...">A little hello from somewhere lovely. May something good find you today.</textarea><button id="downloadPostcard" class="postcard-download">SAVE MY POSTCARD <span>↓</span></button><p id="postcardStatus" aria-live="polite">A small keepsake, made by you.</p></div>
  </div>
 </section>
-\n</main>
+
+</main>
 <footer><span>THE WONDERLANDS <b>✳</b></span><span>AN IMAGINARY PLACE FOR A REAL PERSON</span><span>MADE WITH CARE · FOR TEJASWINNI</span></footer>
 <aside class="guide" id="guide"><button class="guide-bunny" id="guideButton" aria-label="Ask the bunny for a hint"><span class="bunny-ear ear-a"></span><span class="bunny-ear ear-b"></span><span class="bunny-face">•ᴗ•</span></button><div class="guide-bubble" id="guideBubble">Psst… I'm your tiny guide. Tap me if you get lost.</div></aside>
 <dialog class="journal" id="journal"><button class="dialog-close" id="journalClose" aria-label="Close">×</button><p class="eyebrow dark">FIELD JOURNAL · VOL. 01</p><h2>A few things<br>to remember.</h2><p>There is no timer here. You can explore in any order, leave and come back, or wander the same place twice. The little keepsakes you find will stay with you on this device.</p><div class="journal-progress"><span>YOUR KEEPSAKES</span><b id="journalCount">0 / 5</b></div><div class="journal-icons" id="journalIcons">○　○　○　○　○</div><div class="journal-extras" id="journalExtras">STORYBOOK 0/5 · GIFTS 0/4 · CONSTELLATION 0/6</div><p class="journal-sign">Take the scenic route. It's prettier. ♡</p></dialog>
 <script src="world.js?v=3" defer></script>
 
 <dialog class="explore-dialog" id="exploreDialog"><button class="dialog-close" id="exploreClose" aria-label="Close explore">×</button><p class="eyebrow dark">THE QUICK WAY AROUND</p><h2>Where shall we<br><em>wander next?</em></h2><label class="explore-search-label" for="exploreSearch">SEARCH THIS LITTLE WORLD</label><input id="exploreSearch" type="search" placeholder="Try meadow, stars, letter, postcard…"><div class="explore-results" id="exploreResults"><button data-explore-target="storybook"><b>The Storybook</b><small>Five chapters</small></button><button data-explore-target="world"><b>The Adventure Map</b><small>Four destinations</small></button><button data-explore-target="compliments"><b>The Constellation</b><small>Six little notes</small></button><button data-explore-target="giftroom"><b>The Magic Room</b><small>Four mystery gifts</small></button><button data-explore-target="postcardStudio"><b>The Postcard Studio</b><small>Make a keepsake</small></button><button data-explore-target="secret"><b>The Secret Garden</b><small>The final discovery</small></button></div></dialog>
-\n</body></html>
+
+</body></html>
