@@ -1,7 +1,7 @@
 (()=>{'use strict';
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)],reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const KEY='tejaswinni-wonderlands-v1';let state={keepsakes:[],visited:[],fireflies:[],stars:[],mood:null,trail:null};
-try{const saved=JSON.parse(localStorage.getItem(KEY)||'null');if(saved&&Array.isArray(saved.keepsakes))state={...state,...saved}}catch(e){}
+const KEY='tejaswinni-wonderlands-v1';let state={keepsakes:[],visited:[],fireflies:[],stars:[],mood:null,trail:null,chapters:[],gifts:[],constellation:[]};
+try{const saved=JSON.parse(localStorage.getItem(KEY)||'null');if(saved&&Array.isArray(saved.keepsakes))state={...state,...saved,chapters:Array.isArray(saved.chapters)?saved.chapters:[],gifts:Array.isArray(saved.gifts)?saved.gifts:[],constellation:Array.isArray(saved.constellation)?saved.constellation:[]}}catch(e){}
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}};
 const scrollTo=id=>$('#'+id)?.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
 function setStatus(){const n=state.keepsakes.length;$('#mapCounter').textContent=n+' / 5 KEEPSAKES FOUND';$('#keepsakes').innerHTML=Array.from({length:5},(_,i)=>'<i class="'+(i<n?'found':'')+'">'+(i<n?'✦':'○')+'</i>').join('');$('#journalCount').textContent=n+' / 5';$('#journalIcons').textContent=Array.from({length:5},(_,i)=>i<n?'✦':'○').join('　');$('#openSecret').disabled=n<5;$('#openSecret span').textContent=n<5?'THE DOOR IS STILL LOCKED':'OPEN YOUR LITTLE SURPRISE';$('#secretStatus').textContent=n<5?'COLLECT '+(5-n)+' MORE KEEPSAKE'+(5-n===1?'':'S')+' TO OPEN IT.':'ALL FIVE FOUND. THE GARDEN IS YOURS.';$('#statusText').textContent=n===5?'THE SECRET GARDEN IS OPEN':'YOUR ADVENTURE AWAITS';state.visited.forEach(id=>$('.map-place[data-go="'+id+'"]')?.classList.add('done'))}
@@ -23,4 +23,47 @@ const journal=$('#journal');$('#journalOpen').addEventListener('click',()=>journ
 const guideEl=$('#guide'),guideBubble=$('#guideBubble');const hints=['Try tapping the little glowing fireflies in the meadow. One is hiding a keepsake.','The café menu changes depending on what kind of day you choose.','Look closely at the mountain trail. Something tiny is tucked away there.','The stars are clickable. Bring all five together to complete the constellation.','Your journal keeps track of every little thing you discover.'];let hintIndex=0;function guide(msg){guideBubble.textContent=msg;guideEl.classList.add('show');clearTimeout(guide.timer);guide.timer=setTimeout(()=>guideEl.classList.remove('show'),5000)}$('#guideButton').addEventListener('click',()=>{guide(hints[hintIndex%hints.length]);hintIndex++});$('#mapBunny').addEventListener('click',()=>guide(hints[hintIndex++%hints.length]));
 const progress=$('#progress');function updateProgress(){const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=(max?scrollY/max*100:0)+'%'}addEventListener('scroll',updateProgress,{passive:true});updateProgress();
 if('IntersectionObserver'in window&&!reduce){const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');io.unobserve(e.target)}}),{threshold:.12});$$('.realm-art,.realm-copy,.map-wrap,.secret-door,.secret-copy,.letter-paper').forEach(el=>io.observe(el))}
-})();
+
+/* Storybook chapters — completion persists in the field journal. */
+const chapterData=[
+ {title:"The First Page",kicker:"CHAPTER ONE",icon:"✳",body:"Every lovely little world begins with a hello. This one begins with an invitation to slow down, look around, and follow whatever makes you curious."},
+ {title:"The In-Between",kicker:"CHAPTER TWO",icon:"☁",body:"Not every beautiful moment announces itself. Sometimes it is a quiet cup, a little laugh, a sky changing colour, or the feeling that there is nowhere else you need to be."},
+ {title:"Somewhere New",kicker:"CHAPTER THREE",icon:"🏔",body:"There will always be another path, another view, another place you have not seen yet. I hope curiosity keeps finding you, and the world keeps giving you reasons to look closer."},
+ {title:"A Softer Place",kicker:"CHAPTER FOUR",icon:"🌷",body:"For the days that ask too much: take your time. Rest is not falling behind. You are allowed to pause, begin again, and be gentle with yourself."},
+ {title:"The Page After",kicker:"CHAPTER FIVE",icon:"✧",body:"This is not really an ending. It is a little bookmark for whenever you want to return. There are still corners to explore, small joys to collect, and pages you have not turned yet."}
+];
+let activeChapter=0;
+function renderChapter(index){activeChapter=(index+chapterData.length)%chapterData.length;const c=chapterData[activeChapter];$('#chapterPageNumber').textContent=String(activeChapter+1).padStart(2,'0')+' / 05';$('#chapterIllustration').textContent=c.icon;$('#chapterKicker').textContent=c.kicker;$('#chapterTitle').textContent=c.title;$('#chapterBody').textContent=c.body;const read=state.chapters.includes(activeChapter);$('#chapterReadStatus').textContent=read?'PAGE ADDED TO YOUR JOURNAL':'A PAGE WAITING TO BE READ';$('[data-story-chapter]').forEach((b,i)=>{b.classList.toggle('active',i===activeChapter);b.classList.toggle('read',state.chapters.includes(i));b.setAttribute('aria-pressed',String(i===activeChapter))});}
+$('[data-story-chapter]').forEach(b=>b.addEventListener('click',()=>{const i=Number(b.dataset.storyChapter);if(!state.chapters.includes(i)){state.chapters.push(i);save()}renderChapter(i)}));
+$('#chapterNext').addEventListener('click',()=>{if(!state.chapters.includes(activeChapter)){state.chapters.push(activeChapter);save()}renderChapter(activeChapter+1);});
+renderChapter(0);
+/* Six-point compliment constellation. */
+const complimentNotes=[
+ ["Your Voice","There is a warmth in the way you express yourself. Never feel you have to make your thoughts smaller."],
+ ["Your Kindness","The thoughtful little things matter. I hope the kindness you give finds its way back to you."],
+ ["Your Curiosity","Keep asking questions, noticing details, and finding beauty in unexpected places."],
+ ["Your Dreams","May you always have the courage and the space to follow the things that make you feel alive."],
+ ["Your Strength","You do not have to be strong every minute. Even taking a breath and trying again counts."],
+ ["Simply You","No grand reason needed. Being yourself is already something worth celebrating."]
+];
+function updateComplimentProgress(){$('#complimentProgress').textContent=state.constellation.length+' / 6 STARS DISCOVERED'}
+$('[data-compliment]').forEach(b=>{const i=Number(b.dataset.compliment);if(state.constellation.includes(i))b.classList.add('discovered');b.addEventListener('click',()=>{if(!state.constellation.includes(i)){state.constellation.push(i);save()}b.classList.add('discovered');$('#complimentReveal').innerHTML='<span>✧ A LITTLE NOTE FOR YOU</span><b></b><p></p>';$('#complimentReveal').querySelector('b').textContent=complimentNotes[i][0];$('#complimentReveal').querySelector('p').textContent=complimentNotes[i][1];updateComplimentProgress()})});
+updateComplimentProgress();
+/* Mystery gifts reveal once and remain open on this device. */
+const giftNotes=$('.mystery-gift');
+function updateGiftProgress(){$('#giftRoomProgress').textContent=state.gifts.length+' / 4 LITTLE GIFTS OPENED';giftNotes.forEach((b,i)=>{if(state.gifts.includes(i))b.classList.add('opened')})}
+giftNotes.forEach(b=>b.addEventListener('click',()=>{const i=Number(b.dataset.gift);if(!state.gifts.includes(i)){state.gifts.push(i);save()}b.classList.add('opened');updateGiftProgress()}));
+updateGiftProgress();
+/* Searchable Explore panel, inspired by the original Universe directory. */
+const exploreDialog=$('#exploreDialog');
+$('#exploreOpen').addEventListener('click',()=>{exploreDialog.showModal();$('#exploreSearch').focus()});
+$('#exploreClose').addEventListener('click',()=>exploreDialog.close());
+exploreDialog.addEventListener('click',e=>{if(e.target===exploreDialog)exploreDialog.close()});
+$('#exploreSearch').addEventListener('input',e=>{const q=e.target.value.trim().toLowerCase();$('#exploreResults button').forEach(b=>b.hidden=!b.textContent.toLowerCase().includes(q))});
+$('[data-explore-target]').forEach(b=>b.addEventListener('click',()=>{const id=b.dataset.exploreTarget;exploreDialog.close();scrollTo(id)}));
+/* Postcard studio: local-only canvas export, no upload or server storage. */
+const postcardPlace=$('#postcardPlace'),postcardMessage=$('#postcardMessage'),postcardText=$('#postcardText'),postcardDestination=$('#postcardDestination');
+postcardText.addEventListener('input',()=>postcardMessage.textContent=postcardText.value||'A little hello from somewhere lovely.');
+postcardDestination.addEventListener('change',()=>postcardPlace.textContent=postcardDestination.value);
+$('#downloadPostcard').addEventListener('click',()=>{const canvas=document.createElement('canvas');canvas.width=1200;canvas.height=800;const ctx=canvas.getContext('2d');if(!ctx){$('#postcardStatus').textContent='Your browser could not prepare the postcard.';return;}const g=ctx.createLinearGradient(0,0,1200,800);g.addColorStop(0,'#f8e7d0');g.addColorStop(.55,'#fff7e8');g.addColorStop(1,'#e4e9d9');ctx.fillStyle=g;ctx.fillRect(0,0,1200,800);ctx.strokeStyle='#fffaf0';ctx.lineWidth=22;ctx.strokeRect(14,14,1172,772);ctx.setLineDash([8,8]);ctx.strokeStyle='#bdad91';ctx.lineWidth=2;ctx.strokeRect(38,38,1124,724);ctx.setLineDash([]);ctx.fillStyle='#a17d67';ctx.font='24px monospace';ctx.fillText('GREETINGS FROM',90,180);ctx.fillStyle='#354b3f';ctx.font='56px Georgia';const place=postcardDestination.value;const words=place.split(' ');let line='',y=270;for(const word of words){const test=line?line+' '+word:word;if(ctx.measureText(test).width>850){ctx.fillText(line,90,y);line=word;y+=68}else line=test}ctx.fillText(line,90,y);ctx.fillStyle='#6e7669';ctx.font='italic 32px Georgia';const msg=postcardText.value.trim()||'A little hello from somewhere lovely.';const msgWords=msg.split(/\s+/);line='';y+=110;for(const word of msgWords){const test=line?line+' '+word:word;if(ctx.measureText(test).width>900){ctx.fillText(line,90,y);line=word;y+=48}else line=test}if(y<650)ctx.fillText(line,90,y);ctx.fillStyle='#a67a6a';ctx.font='italic 26px Georgia';ctx.fillText('— with a little care ♡',90,690);ctx.fillStyle='#bd8d73';ctx.font='50px Georgia';ctx.fillText('✳',1050,700);canvas.toBlob(blob=>{if(!blob){$('#postcardStatus').textContent='Could not create the postcard. Please try again.';return;}const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='tejaswinni-postcard.png';a.click();URL.revokeObjectURL(url);$('#postcardStatus').textContent='Your postcard is ready — saved on your device.';},'image/png')});
+\n})();
