@@ -10,6 +10,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="world.css?v=4">
+  <link rel="stylesheet" href="hybrid-world.css?v=1">
+  <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js"}}</script>
+  <script type="module" src="hybrid-world.js?v=1"></script>
   <script src="world.js?v=4" defer></script>
 </head>
 <body data-weather="clear">
@@ -42,7 +45,8 @@
         <p class="welcome-foot">NO TIMER. NO CHECKLIST. JUST FOLLOW YOUR CURIOSITY.</p>
       </div>
 
-      <div class="welcome-art" role="img" aria-label="A hand-drawn mountain valley with a lake, a little cottage, flowers and a winding path">
+      <div class="welcome-art" role="img" aria-label="A cinematic mountain lake photograph with a real-time three-dimensional forest foreground">
+        <div id="hybridCanvasWrap" aria-hidden="true"></div>
         <svg class="valley-art" viewBox="0 0 760 650" role="presentation">
           <defs>
             <linearGradient id="skyWash" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6dfc8"/><stop offset=".62" stop-color="#d7dfcf"/><stop offset="1" stop-color="#b9cdb9"/></linearGradient>
