@@ -1,41 +1,49 @@
-# A Little World of Tejaswinni ✦
+# A Little World of Tejaswinni
 
-**The Living Atlas** is a small, interactive world built as a thoughtful digital surprise. It is designed as one connected journey rather than a collection of unrelated sections.
+A personal, browser-based experience built as a hybrid of real landscape photography and a real-time Three.js environment.
 
-## The experience
+## Visual direction
 
-- **A personal invitation** — a quiet opening scene and a letter in an envelope.
-- **The illustrated atlas** — one hand-drawn valley with four places to discover.
-- **The Wild Garden** — help a tiny flower grow through a small, tactile interaction.
-- **Cloud Nine Café** — choose the weather of the day; the colour palette of the world responds.
-- **The Long Way Round** — choose a trail and follow its three footprints to find the hidden path.
-- **The Quiet Observatory** — connect five stars and complete a small constellation.
-- **Field Notes** — a saved record of discoveries, with the final page opening after all four places are found.
-- **A little keepsake** — create and save a postcard-style card from the experience.
+The opening environment now uses a real alpine-lake photograph as its landscape plate, with a real-time WebGL foreground. The foreground loads a textured Scots pine GLB model and uses real-time camera parallax, lighting, fog, shadows and subtle ambient particles. The atlas and discovery scenes use photographic environments rather than the original hand-drawn SVG valley.
 
-The journey is open-ended: there is no timer, forced order, account, or backend. Progress is stored locally in the visitor's browser.
+The experience is intentionally a hybrid: photography carries the natural detail and atmosphere; Three.js adds depth, camera response and interactive environmental elements. It is not a full terrain scan or a first-person open-world game.
 
-## Design and interaction principles
+## Places
 
-- One visual world, with each interaction contributing to the same journey.
-- Illustrated 2D scenes and small, purposeful motion rather than a heavy 3D runtime.
-- Responsive layouts for desktop and mobile.
-- Keyboard-operable controls, visible focus states, semantic dialogs, and reduced-motion support.
-- No music autoplay or required sound.
+- **The Wild Garden** — a photographic alpine meadow with a small growth interaction.
+- **Cloud Nine Café** — a warm cabin / lakeside scene and a gentle mood choice.
+- **The Long Way Round** — a misty forest path and a route-finding interaction.
+- **The Quiet Observatory** — a real night-sky landscape and a small constellation interaction.
+- **Field Notes** — a local record of discoveries.
+- **A little keepsake** — a downloadable postcard from the experience.
+
+There is no timer, forced order, account or backend. Progress is stored locally in the visitor's browser. No music autoplay or required sound.
 
 ## Technology
 
-- Semantic HTML
-- CSS, custom SVG illustration and responsive layouts
-- Vanilla JavaScript
-- Canvas 2D for a lightweight ambient particle layer
+- Semantic HTML, CSS and vanilla JavaScript
+- Three.js WebGL renderer
+- GLTFLoader for the textured pine model
+- Unsplash photography for the environmental plates
+- Canvas 2D ambient layer retained for lightweight atmospheric detail
 - Browser local storage for journey progress
 
-No build step, backend, API key, or account is required. Google Fonts are loaded remotely with system fallbacks.
+Three.js is loaded from jsDelivr. The site retains a photographic CSS fallback if WebGL cannot be initialized.
+
+## Image and model credits
+
+- Mountain lake background: Sergey Pesterev, Unsplash
+- Alpine meadow: Daniel Pintilei, Unsplash
+- Cabin / lakeside interior: Hendrik Morkel, Unsplash
+- Forest path: Oleksii Rozanov, Unsplash
+- Night sky over Spiti: Ashwini Chaudhary, Unsplash
+- Scots pine GLB: Innerscene, released under CC0
+
+Photographs are used under the Unsplash License. The Scots pine model is CC0. Please retain these credits if redistributing the project.
 
 ## Run locally
 
-Open index.html in a browser, or start a local server:
+Open `index.html` in a browser through a local server:
 
 ```bash
 python -m http.server 8000
@@ -43,12 +51,10 @@ python -m http.server 8000
 
 Then visit http://localhost:8000.
 
-## Deploy
+## Deployment
 
-The repository is configured as a static site on Vercel. The production domain is unchanged:
+The production domain is unchanged:
 
 https://a-little-world-of-tejaswinni.vercel.app
 
----
-
-Made with care, for Tejaswinni. ♡
+The photorealistic hybrid work is isolated on the `feat/photorealistic-hybrid-world` branch and has not been merged into production.
