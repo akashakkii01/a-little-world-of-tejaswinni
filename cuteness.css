@@ -1,0 +1,34 @@
+/* Cuteness expansion — pocket buddy, floating charms, soft motion */
+:root{--candy-pink:#ffb8cf;--candy-lilac:#d8c6ff;--candy-yellow:#ffe6a6;--candy-mint:#bcebd9}
+.pocket-buddy{position:fixed;right:22px;bottom:20px;z-index:24;display:flex;flex-direction:column;align-items:flex-end;gap:10px;pointer-events:none}
+.buddy-bubble{max-width:245px;padding:13px 16px;border:1px solid #ffffff45;border-radius:19px 19px 5px 19px;background:#fff8f0;color:#675268;box-shadow:0 12px 35px #09061155;font-size:11px;line-height:1.55;opacity:0;transform:translateY(8px) scale(.96);transition:.3s;pointer-events:none}
+.buddy-bubble.show{opacity:1;transform:none}
+.buddy-toggle{pointer-events:auto;position:relative;width:68px;height:68px;border:1px solid #ffffff80;border-radius:25px 25px 25px 8px;background:linear-gradient(145deg,#ffe0e8,#e9d9ff);box-shadow:0 10px 32px #09061166;cursor:pointer;display:grid;place-items:center;transition:transform .25s}
+.buddy-toggle:hover{transform:translateY(-5px) rotate(-5deg)}
+.buddy-face{position:relative;width:42px;height:39px;border-radius:48% 48% 44% 44%;background:#c99783;box-shadow:inset -4px -4px #b78478}
+.buddy-face:before,.buddy-face:after{content:"";position:absolute;top:-7px;width:16px;height:17px;border-radius:70% 70% 25% 25%;background:#d5a28e}
+.buddy-face:before{left:2px;transform:rotate(-20deg)}.buddy-face:after{right:2px;transform:rotate(20deg)}
+.buddy-eyes{position:absolute;top:16px;left:11px;width:4px;height:5px;border-radius:50%;background:#49333a;box-shadow:16px 0 #49333a}
+.buddy-nose{position:absolute;top:24px;left:19px;width:6px;height:5px;border-radius:50%;background:#8e6264}
+.buddy-blush{position:absolute;top:25px;left:5px;width:7px;height:4px;border-radius:50%;background:#f09cae;box-shadow:25px 0 #f09cae}
+.buddy-heart{position:absolute;top:-10px;right:-8px;color:#e77eaa;font-size:19px;animation:buddyBeat 1.2s infinite}
+@keyframes buddyBeat{50%{transform:scale(1.3) rotate(8deg)}}
+.cute-panel{pointer-events:auto;display:none;width:min(290px,calc(100vw - 36px));padding:17px;border:1px solid #ffffff35;border-radius:20px;background:linear-gradient(145deg,#322943f5,#211a32f5);box-shadow:0 18px 55px #08061188;backdrop-filter:blur(16px);color:#fff5f4}
+.cute-panel.open{display:block;animation:buddyPop .28s ease-out}
+@keyframes buddyPop{from{opacity:0;transform:translateY(10px) scale(.97)}to{opacity:1;transform:none}}
+.cute-panel h4{font:500 20px 'Playfair Display';margin:0 0 5px}.cute-panel p{font-size:10px;line-height:1.6;color:#c9bbd0;margin:0 0 13px}
+.mood-row{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.mood-choice{border:1px solid #ffffff20;background:#ffffff0b;border-radius:12px;padding:9px 2px;color:#fff;font-size:18px;cursor:pointer;transition:.2s}
+.mood-choice span{display:block;font-size:8px;color:#cdbed2;margin-top:4px}
+.mood-choice:hover,.mood-choice:focus-visible{background:#f3b7cf30;transform:translateY(-3px)}
+.buddy-foot{display:flex;align-items:center;justify-content:space-between;margin-top:13px;padding-top:11px;border-top:1px solid #ffffff18;font-size:9px;color:#cbbbd0}
+.buddy-foot button{border:0;background:none;color:#f5c6d8;cursor:pointer;font:inherit}
+.heart-pop{position:fixed;z-index:26;pointer-events:none;font-size:20px;animation:heartRise 1.15s ease-out forwards;filter:drop-shadow(0 3px 8px #f49abb66)}
+@keyframes heartRise{0%{opacity:0;transform:translate(-50%,-20%) scale(.4) rotate(-15deg)}18%{opacity:1}100%{opacity:0;transform:translate(calc(-50% + var(--drift)), -115px) scale(1.25) rotate(22deg)}}
+.cursor-charm{position:fixed;z-index:22;pointer-events:none;color:#ffd9e8;font-size:12px;text-shadow:0 0 12px #f7b8d7;animation:charmFade .75s ease-out forwards}
+@keyframes charmFade{to{opacity:0;transform:translateY(-18px) scale(.35) rotate(70deg)}}
+.candy-toast{position:fixed;z-index:35;left:50%;bottom:25px;transform:translate(-50%,18px);opacity:0;pointer-events:none;border:1px solid #ffffff40;border-radius:50px;background:#fff7f1;color:#674e66;padding:12px 18px;font-size:11px;box-shadow:0 12px 35px #08061166;transition:.3s;white-space:nowrap;max-width:calc(100vw - 30px);overflow:hidden;text-overflow:ellipsis}
+.candy-toast.show{opacity:1;transform:translate(-50%,0)}
+.love-counter{display:inline-flex;align-items:center;gap:7px;color:#f6c3d6;font-size:10px;margin-top:12px}
+@media(max-width:600px){.pocket-buddy{right:13px;bottom:13px}.buddy-toggle{width:60px;height:60px}.buddy-bubble{max-width:210px}.candy-toast{bottom:14px;font-size:10px}}
+@media(prefers-reduced-motion:reduce){.buddy-heart,.heart-pop,.cursor-charm{animation:none!important}.buddy-bubble,.cute-panel,.candy-toast{transition:none!important}}
