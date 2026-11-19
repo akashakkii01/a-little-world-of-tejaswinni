@@ -1,51 +1,82 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f5e8dc"><meta name="description" content="A tiny playful escape through mountains, gardens, clouds and little surprises. Made for Tejaswinni.">
-<title>A Little World of Tejaswinni ♡</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#182d2b"><meta name="description" content="An illustrated little universe of hidden paths, wildflowers, starlight and small surprises. Made for Tejaswinni.">
+<title>A Little World of Tejaswinni — The Atlas</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="world.css?v=1"><link rel="stylesheet" href="universe.css?v=1">
-</head>
-<body>
-<div class="grain"></div><div class="scroll-progress" id="progress"></div>
-<header class="topbar"><a class="wordmark" href="#top">little world <span>♡</span></a><nav><a href="#explore">explore</a><a href="#garden">garden</a><a href="#postcard">postcard</a></nav><button class="sound-toggle" id="sparkles" aria-pressed="false">✧ sprinkle magic</button></header>
-<main id="top">
-<section class="hero">
- <div class="hero-copy"><div class="eyebrow"><span></span> A tiny escape, made for Tejaswinni <span></span></div>
-  <h1>Somewhere<br>the world feels <em>softer.</em></h1>
-  <p>A little mountain air, a garden full of tiny things, and a few surprises hiding around the corner. Come wander? 🌼</p>
-  <button class="main-cta" id="start">Let's wander <span>↗</span></button><div class="tiny-caption">best explored slowly, with a smile</div>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="world.css?v=2"><link rel="stylesheet" href="universe.css?v=2"></head>
+<body class="atlas">
+<div class="grain" aria-hidden="true"></div><div class="reading-progress" id="progress"></div>
+<header class="atlas-nav"><a class="brand" href="#home"><span class="brand-mark">✳</span><span>THE LITTLE ATLAS<small>AN UNFINISHED COLLECTION OF WONDERS</small></span></a><nav><a href="#map">THE MAP</a><a href="#fieldnotes">FIELD NOTES</a><a href="#observatory">NIGHT SKY</a></nav><button class="nav-seal" id="openJournal" aria-label="Open field journal">✉ <span>JOURNAL</span></button></header>
+<main id="home">
+<section class="opening">
+ <div class="opening-copy"><div class="edition"><span>VOL. 01</span><i></i><span>MADE FOR TEJASWINNI</span></div>
+  <p class="overline">A PLACE TO WANDER WITHOUT A MAP</p><h1>Somewhere<br>between <em>here</em><br>and <em>wonder.</em></h1>
+  <p class="opening-desc">A tiny universe of winding paths, secret gardens, cloud-soft afternoons and skies that keep a few wishes safe.</p>
+  <a class="enter-world" href="#map"><span>STEP INSIDE</span><b>↘</b></a><p class="handnote">take the long way. it's prettier. <span>✳</span></p>
  </div>
- <div class="landscape" aria-label="Illustration of a dreamy mountain valley with a little cottage">
-  <div class="sun"></div><div class="cloud cloud-a"></div><div class="cloud cloud-b"></div><div class="mountain back"></div><div class="mountain mid"></div><div class="mountain front"></div><div class="valley"></div><div class="lake"></div>
-  <div class="cottage"><i class="roof"></i><i class="window"></i><i class="door"></i><i class="smoke"></i></div><div class="pine p1"></div><div class="pine p2"></div><div class="pine p3"></div><div class="pine p4"></div><div class="flower-patch">✿　✧　❀　✿　✧</div>
-  <div class="bunny" id="bunny" role="img" aria-label="A tiny bunny friend"><i class="bunny-ear e1"></i><i class="bunny-ear e2"></i><i class="bunny-body"></i><i class="bunny-face"><b></b><b></b><em></em></i><i class="bunny-cheek c1"></i><i class="bunny-cheek c2"></i><span class="bunny-bow">✿</span></div>
-  <span class="scene-star s1">✦</span><span class="scene-star s2">✧</span><span class="scene-star s3">✦</span><div class="scene-label">the little valley <span>⌁</span></div>
- </div><div class="scroll-note">SCROLL A LITTLE <span>↓</span></div>
-</section>
-<section class="intro section" id="explore"><div class="section-title"><span class="kicker">A NOTE FROM YOUR LITTLE GUIDE</span><h2>Pick your kind<br>of <em>little adventure.</em></h2><p>No rush. There isn't a right way to explore this place.</p></div>
- <div class="adventures">
-  <button class="adventure a-peach" data-adventure="cloud"><span class="ad-icon">☁️</span><span class="ad-number">01 / FLOAT A LITTLE</span><strong>Cloud watching</strong><small>For daydreaming and doing absolutely nothing.</small><b class="go">wander here ↗</b></button>
-  <button class="adventure a-green" data-adventure="trail"><span class="ad-icon">🏔️</span><span class="ad-number">02 / TAKE THE SCENIC ROUTE</span><strong>The tiny trail</strong><small>A small reminder that little steps count too.</small><b class="go">wander here ↗</b></button>
-  <button class="adventure a-lilac" data-adventure="meadow"><span class="ad-icon">🦋</span><span class="ad-number">03 / FOLLOW A BUTTERFLY</span><strong>Butterfly meadow</strong><small>For pretty surprises and curious little hearts.</small><b class="go">wander here ↗</b></button>
- </div><div class="adventure-result" id="adventureResult" aria-live="polite"><span>✧</span> Choose a little adventure to see what you find.</div>
-</section>
-<section class="weather-section section"><div class="weather-art"><div class="weather-sun"></div><div class="weather-cloud c-a"></div><div class="weather-cloud c-b"></div><div class="weather-hill h-a"></div><div class="weather-hill h-b"></div><div class="weather-daisy">✿</div><div class="weather-butterfly">🦋</div></div>
- <div class="weather-copy"><span class="kicker">A LITTLE MOOD FORECAST</span><h2>What kind of sky<br>are we having <em>today?</em></h2><p>Tap a sky. Your tiny valley will match the mood.</p><div class="weather-options"><button data-weather="sunny">☀️ <span>sunny</span></button><button data-weather="cloudy">☁️ <span>cloudy</span></button><button data-weather="rainy">🌦️ <span>rainy</span></button><button data-weather="starry">🌙 <span>starry</span></button></div><div class="weather-message" id="weatherMessage">A little sunshine, a little daydream. That's a lovely forecast. ♡</div></div>
-</section>
-<section class="garden-section section" id="garden"><div class="section-title"><span class="kicker">THE GARDEN OF LITTLE THINGS</span><h2>Boop a flower.<br>Make it <em>bloom.</em></h2><p>Every flower has a tiny thought tucked inside.</p></div>
- <div class="garden" id="gardenArt"><div class="garden-sky"><span>☁</span><span>☁</span><span>✧</span></div><div class="garden-hill"></div>
-  <button class="garden-flower f1" data-flower="You don't have to bloom all at once. Every little season has its own kind of magic.">🌷</button><button class="garden-flower f2" data-flower="Hope today surprises you in the loveliest, silliest little way.">🌼</button><button class="garden-flower f3" data-flower="A reminder to save a little time for the things that make you giggle.">🌸</button><button class="garden-flower f4" data-flower="Even the tiniest things can make an ordinary day feel special.">🌻</button><button class="garden-flower f5" data-flower="Sending a pocket-sized dose of sunshine for wherever you are.">🪻</button>
-  <div class="garden-note" id="gardenNote">Psst… the flowers are waiting for a hello. ♡</div><div class="bee">🐝</div>
+ <div class="opening-art" aria-label="Illustrated mountain valley at twilight">
+  <div class="orb orb-sun"></div><div class="orb orb-moon"></div><div class="constellation c-one">✦　·　✧</div><div class="constellation c-two">·　✦　·</div>
+  <svg class="panorama" viewBox="0 0 900 650" role="img" aria-label="A dreamy illustrated valley with mountains, a lake, a tiny cottage and a winding path">
+   <defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#edb9a6"/><stop offset=".48" stop-color="#f1d4b9"/><stop offset="1" stop-color="#b6c9b0"/></linearGradient><linearGradient id="lake" x2="1" y2="1"><stop stop-color="#a8c9bd"/><stop offset="1" stop-color="#567f77"/></linearGradient><linearGradient id="hill" x2="0" y2="1"><stop stop-color="#8eaa8c"/><stop offset="1" stop-color="#466d60"/></linearGradient></defs>
+   <rect width="900" height="650" fill="url(#sky)"/>
+   <circle cx="690" cy="130" r="58" fill="#ffe6b9" opacity=".9"/><circle cx="690" cy="130" r="83" fill="#ffe6b9" opacity=".16"/>
+   <g fill="#fff4e6" opacity=".62"><ellipse cx="175" cy="140" rx="78" ry="17"/><circle cx="130" cy="126" r="27"/><circle cx="177" cy="116" r="38"/><circle cx="220" cy="132" r="24"/><ellipse cx="480" cy="190" rx="64" ry="12"/><circle cx="460" cy="178" r="24"/><circle cx="500" cy="170" r="29"/></g>
+   <path d="M0 390 155 170 280 350 420 120 620 370 760 190 900 390V650H0Z" fill="#a0a99a"/>
+   <path d="m420 120 58 98-46-20-34 39-27-38Z M760 190l49 76-40-17-28 29-23-31Z" fill="#f9e9d6" opacity=".9"/>
+   <path d="M0 420 170 270 310 430 520 245 700 430 840 280 900 360V650H0Z" fill="#748f7d"/>
+   <path d="M0 465q160-115 315-5t300-6q155-105 285 3v193H0Z" fill="url(#hill)"/>
+   <path d="M310 650q70-120 220-170t235-100q-55 110-150 164t-115 106Z" fill="url(#lake)" opacity=".95"/>
+   <path d="M0 550q190-80 360 8t340-4q130-50 200-10v106H0Z" fill="#385e52"/>
+   <path d="M80 650q110-110 235-86t170-35q-35 86-115 121Z" fill="#e3c9a9"/>
+   <g transform="translate(585 355)"><path d="M0 46 50 0 100 46Z" fill="#9c6d68"/><rect x="10" y="45" width="80" height="65" rx="4" fill="#f0d8b6"/><rect x="22" y="68" width="18" height="23" rx="2" fill="#8c6b5b"/><rect x="58" y="60" width="19" height="19" fill="#f6d99e" stroke="#b48770" stroke-width="4"/><path d="M50 0 63 46H38Z" fill="#815a59"/></g>
+   <g fill="#365c4d"><path d="M120 480 150 385 180 480Z"/><path d="M150 485 180 365 210 485Z"/><path d="M770 460 800 360 830 460Z"/><path d="M810 470 840 350 870 470Z"/></g>
+   <g fill="#f5d6b7"><circle cx="255" cy="520" r="4"/><circle cx="275" cy="540" r="3"/><circle cx="730" cy="500" r="4"/><circle cx="750" cy="525" r="3"/></g>
+   <path d="M0 600q170-90 300-40t220 2q100-35 180-3t200 0v91H0Z" fill="#294f45" opacity=".9"/>
+   <g transform="translate(405 500)"><ellipse cx="0" cy="32" rx="23" ry="28" fill="#fff3e5"/><ellipse cx="-11" cy="1" rx="7" ry="21" fill="#fff3e5" transform="rotate(-12)"/><ellipse cx="11" cy="0" rx="7" ry="21" fill="#fff3e5" transform="rotate(12)"/><circle cx="-7" cy="29" r="2.5" fill="#4d4945"/><circle cx="7" cy="29" r="2.5" fill="#4d4945"/><ellipse cx="0" cy="36" rx="3" ry="2" fill="#d28d8b"/><circle cx="-13" cy="37" r="4" fill="#eeb5ae"/><circle cx="13" cy="37" r="4" fill="#eeb5ae"/></g>
+  </svg>
+  <span class="art-caption">THE VALLEY OF UNHURRIED THINGS <i>— 01</i></span>
+  <span class="map-coordinate">31° N · A PLACE THAT DOESN'T NEED TO EXIST</span>
  </div>
+ <div class="side-index"><span>SCROLL TO EXPLORE</span><b>01 — 06</b></div>
 </section>
-<section class="firefly-section section"><div class="section-title"><span class="kicker">A SMALL SECRET IN THE EVENING</span><h2>Can you find the<br><em>five fireflies?</em></h2><p>They're a little shy. Tap each glowing light when you spot it.</p></div>
- <div class="firefly-field" id="fireflyField"><div class="firefly-moon"></div><div class="firefly-hill"></div><span class="firefly f-a" data-firefly>✦</span><span class="firefly f-b" data-firefly>✧</span><span class="firefly f-c" data-firefly>✦</span><span class="firefly f-d" data-firefly>✧</span><span class="firefly f-e" data-firefly>✦</span><div class="firefly-counter" id="fireflyCounter">0 / 5 found</div></div>
- <div class="secret-unlocked" id="secretUnlocked" hidden><span>💌</span><h3>A little note, just because.</h3><p>Somewhere between all the busy days, I hope you keep finding little pockets of wonder. The world has so many lovely corners left for you to discover. Keep being curious, keep laughing at silly things, and keep making room for your own kind of magic. ♡</p><small>— a tiny thought from this little world</small></div>
+<section class="map-section" id="map">
+ <div class="section-head"><div><p class="overline">YOUR VERY OWN LITTLE WORLD</p><h2>Choose a path.<br><em>See where it leads.</em></h2></div><p class="section-aside">There are no wrong turns here.<br>Some places are better found by accident.</p></div>
+ <div class="atlas-map">
+  <svg class="map-lines" viewBox="0 0 1000 540" preserveAspectRatio="none" aria-hidden="true"><path d="M120 385 C170 300 250 310 300 220 S430 110 500 190 S660 340 740 250 S850 120 910 160" fill="none" stroke="#b68b79" stroke-width="2" stroke-dasharray="5 9"/><path d="M300 220Q400 390 520 420T740 250" fill="none" stroke="#b68b79" stroke-width="1.5" stroke-dasharray="3 10"/></svg>
+  <button class="map-stop stop-garden" data-stop="garden"><span class="stop-symbol">✿</span><span class="stop-label">THE WILD GARDEN<small>where little things bloom</small></span></button>
+  <button class="map-stop stop-cafe" data-stop="cafe"><span class="stop-symbol">☕</span><span class="stop-label">CLOUD NINE CAFÉ<small>one table, endless daydreams</small></span></button>
+  <button class="map-stop stop-trail" data-stop="trail"><span class="stop-symbol">⌁</span><span class="stop-label">THE LONG WAY ROUND<small>a path worth taking slowly</small></span></button>
+  <button class="map-stop stop-observe" data-stop="stars"><span class="stop-symbol">✧</span><span class="stop-label">THE NIGHT OBSERVATORY<small>five stars, one secret</small></span></button>
+  <div class="map-compass"><span>N</span><b>✥</b><small>NOT TO SCALE<br>MADE TO WANDER</small></div>
+  <div class="map-response" id="mapResponse" aria-live="polite"><span>✳</span> Select a place on the map to uncover its little world.</div>
+ </div>
+ <div class="map-legend"><span><i class="legend-dot"></i> PLACES TO WANDER</span><span><i class="legend-line"></i> THE SCENIC ROUTE</span><span>✧ <b>4</b> HIDDEN DESTINATIONS</span></div>
 </section>
-<section class="postcard-section section" id="postcard"><div class="postcard"><div class="postcard-stamp">✿<small>POSTCARD<br>FROM SOMEWHERE NICE</small></div><div class="postcard-content"><span class="kicker">A POSTCARD FOR YOU</span><h2>Wish you were<br>here for the <em>view.</em></h2><p>May your days have mountain-sized dreams, flower-sized joys, unexpected good news and at least one reason to laugh until your cheeks hurt.</p><div class="postcard-sign">With a little sunshine, ♡</div></div><div class="postcard-doodle">🏡<span>☁️</span><b>✿</b></div></div><button class="again" id="backTop">Wander again ↑</button></section>
-</main><footer><span>made with a little extra care ♡</span><span>for Tejaswinni · a little world of her own</span></footer><div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="world.js?v=1" defer></script><script src="universe.js?v=1" defer></script>
-</body></html>
+<section class="garden-world" id="fieldnotes">
+ <div class="garden-image"><div class="garden-sun"></div><div class="garden-horizon"></div><div class="garden-grass"></div><div class="garden-title">BOTANICAL<br><em>FIELD NOTES</em><small>OBSERVATIONS FROM THE WILD GARDEN · NO. 02</small></div>
+  <button class="pressed-flower flower-one" data-petal="01">✿<small>01</small></button><button class="pressed-flower flower-two" data-petal="02">✿<small>02</small></button><button class="pressed-flower flower-three" data-petal="03">✿<small>03</small></button><button class="pressed-flower flower-four" data-petal="04">✿<small>04</small></button><button class="pressed-flower flower-five" data-petal="05">✿<small>05</small></button>
+  <div class="field-caption" id="petalNote">Five little blooms. Each one has something to tell you.</div>
+ </div>
+ <div class="field-side"><p class="overline">A COLLECTION OF SMALL REMINDERS</p><h2>Things worth<br><em>noticing.</em></h2><p>Not every lovely thing makes a sound. Some are quiet, like a flower opening when nobody is watching.</p><div class="specimen-list"><div><span>01</span><p>GROW AT YOUR OWN PACE<small>There is no timetable for becoming.</small></p></div><div><span>02</span><p>KEEP A LITTLE WONDER<small>Curiosity makes ordinary days glow.</small></p></div><div><span>03</span><p>TAKE THE SCENIC ROUTE<small>The long way can be the lovely way.</small></p></div></div></div>
+</section>
+<section class="cafe-world">
+ <div class="cafe-copy"><p class="overline">OPEN WHENEVER YOU NEED A PAUSE</p><h2>Cloud Nine<br><em>is serving.</em></h2><p>A tiny café floating somewhere above the valley. Pick the feeling you'd like today; the house special is a little kindness.</p>
+ <div class="menu-list"><button data-order="rest"><span>01</span><b>THE SLOW MORNING</b><i>☁</i></button><button data-order="courage"><span>02</span><b>THE LITTLE COURAGE</b><i>✿</i></button><button data-order="joy"><span>03</span><b>THE STRAWBERRY GIGGLE</b><i>♡</i></button><button data-order="dream"><span>04</span><b>THE MIDNIGHT WISH</b><i>✧</i></button></div>
+ <div class="order-note" id="orderNote">Choose something from the menu. No charge, ever. ♡</div></div>
+ <div class="cafe-stilllife"><div class="cafe-window"><span class="window-cloud">☁</span><span class="window-sun"></span><div class="window-hills"></div></div><div class="table"></div><div class="cup"><i></i><b>♡</b></div><div class="steam steam-a"></div><div class="steam steam-b"></div><span class="stilllife-note">a seat saved for a daydreamer</span></div>
+</section>
+<section class="observatory-world" id="observatory">
+ <div class="observatory-heading"><p class="overline">AFTER THE WORLD GETS QUIET</p><h2>A sky full of<br><em>little possibilities.</em></h2><p>Find the five stars hidden in this sky. They have a message waiting.</p></div>
+ <div class="night-canvas"><div class="night-moon"></div><div class="night-ridge"></div><svg class="sky-threads" viewBox="0 0 900 360" preserveAspectRatio="none"><path d="M145 190 280 95 415 175 555 75 720 185" fill="none" stroke="#f3d9b4" stroke-opacity=".28" stroke-width="1.5" stroke-dasharray="3 7"/></svg>
+ <button class="sky-star star-a" aria-label="Find star one">✦</button><button class="sky-star star-b" aria-label="Find star two">✧</button><button class="sky-star star-c" aria-label="Find star three">✦</button><button class="sky-star star-d" aria-label="Find star four">✧</button><button class="sky-star star-e" aria-label="Find star five">✦</button><div class="sky-count" id="skyCount">0 / 5 STARS FOUND</div></div>
+ <div class="sky-reveal" id="skyReveal" hidden><span>✉</span><p>May the things you quietly wish for find their way to you. May there always be a little light on the path ahead, and someone cheering for every small step you take. ♡</p><small>A NOTE FROM THE OBSERVATORY</small></div>
+</section>
+<section class="finale">
+ <div class="finale-card"><div class="finale-top"><span>POSTCARD NO. 003</span><span>THE LITTLE ATLAS</span></div><div class="finale-main"><p class="overline">A NOTE BEFORE YOU GO</p><h2>The world is<br>still full of <em>elsewhere.</em></h2><p>So keep looking up. Keep taking the little detours. Keep finding reasons to be delighted by the smallest things.</p><p class="finale-sign">Until the next wander, <span>✳</span></p></div><div class="finale-stamp">WITH<br>WONDER<br><b>♡</b></div><div class="finale-postmark">A LITTLE WORLD, MADE WITH CARE · FOR TEJASWINNI</div></div>
+ <button class="return-map" id="returnMap">↗ &nbsp; WANDER THE MAP AGAIN</button>
+</section>
+</main>
+<footer><span>THE LITTLE ATLAS <b>✳</b> VOL. 01</span><span>AN IMAGINARY PLACE FOR A REAL PERSON</span><span>MADE WITH CARE · ♡</span></footer>
+<dialog class="journal-dialog" id="journal"><button class="journal-close" id="closeJournal" aria-label="Close journal">×</button><p class="overline">FIELD JOURNAL · PRIVATE PAGE</p><h2>For Tejaswinni,</h2><p>I hope this little world gives you a reason to pause for a moment. There are mountains to wander, flowers to notice, quiet skies to look up at, and so many lovely things still waiting around the bend.</p><p>Take the scenic route whenever you can. You don't have to hurry through the good parts.</p><p class="journal-sign">A little note, from this little world. ♡</p><span class="journal-flower">✿</span></dialog>
+<script src="world.js?v=2" defer></script><script src="universe.js?v=2" defer></script></body></html>
