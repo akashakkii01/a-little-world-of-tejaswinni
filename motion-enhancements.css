@@ -99,3 +99,4 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(-
  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
  .welcome-screen:before{transform:none!important}
 }
+\n@keyframes brand-breathe{0%,100%{transform:rotate(0) scale(1);opacity:.85}50%{transform:rotate(14deg) scale(1.08);opacity:1}}\n
